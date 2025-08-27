@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BraveMind VR Therapy Platform - UX Case Study | Sonny Steele</title>
+    <meta name="description" content="UX case study: Designing BraveMind VR therapy platform for PTSD treatment. Creating intuitive VR interfaces for healthcare professionals and patients.">
+    <meta name="author" content="Sonny Steele">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://sonny-steele.com/Case%20Studies/Bravemind/bravemind-case-study.html">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://sonny-steele.com/Case%20Studies/Bravemind/bravemind-case-study.html">
+    <meta property="og:title" content="BraveMind VR Therapy Platform - UX Case Study | Sonny Steele">
+    <meta property="og:description" content="UX case study: Designing BraveMind VR therapy platform for PTSD treatment. Creating intuitive VR interfaces for healthcare professionals and patients.">
+    <meta property="og:image" content="https://sonny-steele.com/Case%20Studies/Bravemind/images/bravemind-hero.png">
+    <meta property="og:site_name" content="Sonny Steele - AI UX Designer">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://sonny-steele.com/Case%20Studies/Bravemind/bravemind-case-study.html">
+    <meta property="twitter:title" content="BraveMind VR Therapy Platform - UX Case Study">
+    <meta property="twitter:description" content="UX case study: Designing BraveMind VR therapy platform for PTSD treatment. Creating intuitive VR interfaces for healthcare professionals.">
+    <meta property="twitter:image" content="https://sonny-steele.com/Case%20Studies/Bravemind/images/bravemind-hero.png">
+    
+    <!-- Schema.org markup for case study -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CreativeWork",
+      "name": "BraveMind VR Therapy Platform - UX Case Study",
+      "description": "UX case study: Designing BraveMind VR therapy platform for PTSD treatment. Creating intuitive VR interfaces for healthcare professionals and patients.",
+      "url": "https://sonny-steele.com/Case%20Studies/Bravemind/bravemind-case-study.html",
+      "image": "https://sonny-steele.com/Case%20Studies/Bravemind/images/bravemind-hero.png",
+      "author": {
+        "@type": "Person",
+        "name": "Sonny Steele",
+        "jobTitle": "AI UX Designer & Design Leader",
+        "url": "https://sonny-steele.com/index.html"
+      },
+      "datePublished": "2024-01-01",
+      "keywords": "VR Design, Healthcare UX, PTSD Treatment, Virtual Reality, Medical Technology, User Interface Design, Therapy Platform",
+      "genre": "UX Case Study",
+      "about": {
+        "@type": "SoftwareApplication",
+        "name": "BraveMind VR Therapy Platform",
+        "applicationCategory": "Healthcare Software",
+        "description": "Virtual reality therapy platform for PTSD treatment and mental health care"
+      }
+    }
+    </script>
+    
+    <meta name="keywords" content="BraveMind, VR therapy, UX case study, PTSD treatment, virtual reality, healthcare UX, medical technology, Sonny Steele">
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="stylesheet" href="assets.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            padding: 20px 0;
+            border-bottom: 1px solid #eee;
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #111;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #666;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #111;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            gap: 4px;
+        }
+
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: #333;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .mobile-menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+
+        .mobile-menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        .back-link {
+            color: #666;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: #111;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #2c5aa0 0%, #1e3a8a 50%, #1e40af 100%);
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 600px;
+        }
+
+        .hero-meta {
+            margin-top: 40px;
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .meta-label {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 5px;
+        }
+
+        .meta-value {
+            font-weight: 600;
+            color: white;
+        }
+
+        /* Content Sections */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 30px;
+            color: #111;
+        }
+
+        .section-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            max-width: 100%;
+        }
+
+        .problem-statement {
+            background: #e8f4fd;
+            border: 1px solid #b3d9f7;
+            border-radius: 12px;
+            padding: 30px;
+            margin: 40px 0;
+        }
+
+        .problem-statement h3 {
+            color: #1565c0;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        .problem-statement p {
+            color: #1565c0;
+            margin: 0;
+        }
+
+        /* VR Highlight */
+        .vr-highlight {
+            background: linear-gradient(135deg, #2c5aa0 0%, #1e40af 100%);
+            border-radius: 12px;
+            padding: 40px;
+            margin: 40px 0;
+            text-align: center;
+            color: white;
+        }
+
+        .vr-highlight h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .vr-highlight p {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin: 0;
+        }
+
+        /* Screenshots */
+        .screenshots-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 40px;
+            margin: 60px 0;
+        }
+
+        .screenshots-grid.featured {
+            grid-template-columns: 2fr 1fr;
+        }
+
+        /* Logo Exploration */
+        .logo-exploration-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .logo-item {
+            text-align: center;
+        }
+
+        .logo-container {
+            background: #f8f9fa;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            margin-bottom: 15px;
+            padding: 20px;
+        }
+
+        .logo-container img {
+            width: 100%;
+            height: auto;
+            max-width: 300px;
+            border-radius: 8px;
+        }
+
+        .logo-caption {
+            font-size: 0.9rem;
+            color: #6c757d;
+            font-weight: 500;
+        }
+
+        .screenshot-item {
+            text-align: center;
+        }
+
+        .screenshot-item h4 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: #2c3e50;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .image-container {
+            background: #f8f9fa;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            min-height: 500px;
+        }
+
+        .image-container.team-dashboard {
+            min-height: 600px;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+        }
+
+        .screenshot-notes {
+            font-size: 0.95rem;
+            color: #6c757d;
+            text-align: left;
+            line-height: 1.6;
+            background: rgba(103, 126, 234, 0.1);
+            padding: 16px;
+            border-radius: 8px;
+            border-left: 3px solid #2c5aa0;
+        }
+
+        /* Improvements List */
+        .improvements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .improvement-card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid #6c757d;
+        }
+
+        .improvement-card h4 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: #2c3e50;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 600;
+        }
+
+        .improvement-icon {
+            width: 24px;
+            height: 24px;
+            color: #6c757d;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+            flex-shrink: 0;
+        }
+
+        .improvement-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .improvement-card li {
+            padding: 8px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .improvement-card li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #28a745;
+            font-weight: bold;
+        }
+
+
+        /* Mobile Navigation */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 81px;
+                right: -100%;
+                width: 100%;
+                height: calc(100vh - 81px);
+                background: rgba(255, 255, 255, 0.95);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: center;
+                padding-top: 50px;
+                gap: 30px;
+                font-size: 1.2rem;
+                transition: right 0.3s ease;
+                z-index: 999;
+                border-left: 1px solid rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .nav-links li {
+                text-align: center;
+            }
+
+            .nav-links a {
+                display: block;
+                padding: 15px 30px;
+                border-radius: 8px;
+                transition: all 0.2s ease;
+            }
+
+            .nav-links a:hover {
+                background: rgba(0, 0, 0, 0.05);
+            }
+
+            .mobile-menu-toggle {
+                display: flex;
+                z-index: 1000;
+            }
+
+        }
+
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .screenshots-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .hero-meta {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .section {
+                padding: 60px 0;
+            }
+        }
+        
+        /* Footer */
+        .footer {
+            background: #000000;
+            color: white;
+            padding: 80px 0 60px;
+            position: relative;
+            overflow: visible;
+        }
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: left;
+        }
+        .footer-title {
+            font-size: 3.5rem;
+            font-weight: 400;
+            color: white;
+            margin-bottom: 30px;
+            line-height: 1.1;
+            font-family: Georgia, 'Times New Roman', serif;
+        }
+        .footer-description {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.6;
+            margin-bottom: 40px;
+            max-width: 500px;
+        }
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .footer-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 400;
+            transition: all 0.3s ease;
+            padding: 8px 0;
+        }
+        .footer-link:hover {
+            color: white;
+            transform: translateX(5px);
+        }
+        .footer-link svg {
+            flex-shrink: 0;
+            opacity: 0.8;
+        }
+        
+        
+        /* Mobile responsive */
+        @media (max-width: 768px) {
+            .footer-content {
+                text-align: center;
+                padding: 0 20px;
+            }
+            .footer-title {
+                font-size: 2.5rem;
+                margin-bottom: 25px;
+            }
+            .footer-description {
+                font-size: 1rem;
+                margin-bottom: 35px;
+            }
+            .footer-links {
+                gap: 18px;
+            }
+            .footer-link {
+                justify-content: center;
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="https://sonny-steele.com/index.html" class="logo">Sonny Steele</a>
+            <ul class="nav-links">
+                <li><a href="https://sonny-steele.com/index.html">Home</a></li>
+                <li><a href="https://sonny-steele.com/index.html#work">Work</a></li>
+                <li><a href="https://sonny-steele.com/index.html#contact">Contact</a></li>
+                <li><a href="javascript:void(0)" id="resumeLinkHeader">Resume</a></li>
+            </ul>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>BraveMind VR Therapy Platform</h1>
+                <p>Designing immersive VR exposure therapy applications to help individuals overcome anxiety through controlled, therapeutic virtual environments</p>
+                
+                <div class="hero-meta">
+                    <div class="meta-item">
+                        <span class="meta-label">Role</span>
+                        <span class="meta-value">Lead AI UX/UI Designer</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Timeline</span>
+                        <span class="meta-value">8 months</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Team</span>
+                        <span class="meta-value">Product, VR Development, Clinical Psychology</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Status</span>
+                        <span class="meta-value">In Development</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">The Challenge</h2>
+                
+                <div class="problem-statement">
+                    <h3>Problem Statement</h3>
+                    <p>Traditional exposure therapy for anxiety disorders faces significant barriers including high costs, limited therapist availability, and patient reluctance to face real-world scenarios. Many individuals with anxiety disorders never receive proper treatment due to these accessibility challenges.</p>
+                </div>
+
+                <div class="section-content">
+                    <p>Anxiety disorders affect over 40 million adults in the United States annually, yet only 36.9% receive treatment. Traditional exposure therapy, while highly effective, requires specialized clinical settings and extensive therapist training, making it inaccessible to many who need it.</p>
+                    
+                    <p>The challenge was to create a VR platform that could deliver clinically effective exposure therapy in a controlled, safe environment while maintaining the human connection essential to therapeutic success.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="vr-highlight">
+                    <h3>
+                        <svg class="improvement-icon" viewBox="0 0 24 24" style="display: inline; margin-right: 8px;">
+                            <path d="M2 3h6l2 4h-6l-2-4z"/>
+                            <path d="M22 3h-6l-2 4h6l2-4z"/>
+                            <path d="M6 15l-2-6h16l-2 6"/>
+                            <path d="M6 15h12v6H6z"/>
+                        </svg>
+                        Immersive VR Therapy Solution
+                    </h3>
+                    <p>BraveMind leverages cutting-edge VR technology to create controlled therapeutic environments where patients can gradually confront their fears in a safe, measurable way. The platform combines clinical psychology principles with immersive technology to deliver personalized exposure therapy experiences.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Brand Identity & Logo Exploration</h2>
+                
+                <div class="section-content">
+                    <p>The BraveMind brand identity explores the intersection of courage, therapy, and technology. Each logo concept represents different aspects of the healing journey and the innovative VR therapy approach.</p>
+                </div>
+
+                <div class="logo-exploration-grid">
+                    <div class="logo-item">
+                        <div class="logo-container">
+                            <img src="images/bravemind-logo-exploration-1.png" alt="BraveMind colorful brain logo concept" loading="lazy" width="300" height="200">
+                        </div>
+                        <div class="logo-caption">Colorful Brain Concept</div>
+                    </div>
+                    
+                    <div class="logo-item">
+                        <div class="logo-container">
+                            <img src="images/bravemind-logo-exploration-2.png" alt="BraveMind dual brain logo variations" loading="lazy" width="300" height="200">
+                        </div>
+                        <div class="logo-caption">Dual Brain Variations</div>
+                    </div>
+                    
+                    <div class="logo-item">
+                        <div class="logo-container">
+                            <img src="images/bravemind-logo-exploration-3.png" alt="BraveMind circular wave logo concept" loading="lazy" width="300" height="200">
+                        </div>
+                        <div class="logo-caption">Circular Wave Concept</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Platform Overview</h2>
+                
+                <div class="screenshots-grid">
+                    <div class="screenshot-item">
+                        <h4>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                <circle cx="9" cy="7" r="4"/>
+                                <path d="m22 21-3-3m0 0a5.5 5.5 0 1 1-7.78-7.78 5.5 5.5 0 0 1 7.78 7.78Z"/>
+                            </svg>
+                            Clinical Team Dashboard
+                        </h4>
+                        <div class="image-container team-dashboard">
+                            <img src="images/bravemind-team.png" alt="BraveMind clinical team management interface" loading="eager" width="600" height="400">
+                        </div>
+                        <div class="screenshot-notes">
+                            <strong>Professional Tools:</strong><br>
+                            • Therapist profile management<br>
+                            • Patient progress tracking<br>
+                            • Session analytics and insights<br>
+                            • Collaborative care coordination<br>
+                            • Clinical outcome measurements
+                        </div>
+                    </div>
+                    
+                    <div class="screenshot-item">
+                        <h4>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M2 3h6l2 4h-6l-2-4z"/>
+                                <path d="M22 3h-6l-2 4h6l2-4z"/>
+                                <path d="M6 15l-2-6h16l-2 6"/>
+                                <path d="M6 15h12v6H6z"/>
+                            </svg>
+                            VR Experience
+                        </h4>
+                        <div class="image-container">
+                            <img src="images/bravemind-home.png" alt="BraveMind VR therapy home interface" loading="lazy" width="600" height="400">
+                        </div>
+                        <div class="screenshot-notes">
+                            <strong>Key Features:</strong><br>
+                            • Immersive therapy environments<br>
+                            • Real-time biometric monitoring<br>
+                            • Customizable anxiety scenarios<br>
+                            • Progressive difficulty levels<br>
+                            • Safe space controls for patients
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Key Design Innovations</h2>
+                
+                <div class="improvements-grid">
+                    <div class="improvement-card">
+                        <h4>
+                            <svg class="improvement-icon" viewBox="0 0 24 24">
+                                <path d="M2 3h6l2 4h-6l-2-4z"/>
+                                <path d="M22 3h-6l-2 4h6l2-4z"/>
+                                <path d="M6 15l-2-6h16l-2 6"/>
+                                <path d="M6 15h12v6H6z"/>
+                            </svg>
+                            Immersive VR Environments
+                        </h4>
+                        <ul>
+                            <li>Photorealistic therapy scenarios</li>
+                            <li>Adaptive difficulty progression</li>
+                            <li>Real-time environmental controls</li>
+                            <li>Biometric-responsive adjustments</li>
+                            <li>Safe space emergency protocols</li>
+                        </ul>
+                    </div>
+
+                    <div class="improvement-card">
+                        <h4>
+                            <svg class="improvement-icon" viewBox="0 0 24 24">
+                                <polyline points="22,12 18,12 15,21 9,3 6,12 2,12"/>
+                            </svg>
+                            Clinical Analytics
+                        </h4>
+                        <ul>
+                            <li>Real-time anxiety level monitoring</li>
+                            <li>Heart rate and stress indicators</li>
+                            <li>Progress tracking over time</li>
+                            <li>Treatment efficacy measurements</li>
+                            <li>Automated session reports</li>
+                        </ul>
+                    </div>
+
+                    <div class="improvement-card">
+                        <h4>
+                            <svg class="improvement-icon" viewBox="0 0 24 24">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                <circle cx="9" cy="7" r="4"/>
+                                <path d="m22 21-3-3m0 0a5.5 5.5 0 1 1-7.78-7.78 5.5 5.5 0 0 1 7.78 7.78Z"/>
+                            </svg>
+                            Therapist Tools
+                        </h4>
+                        <ul>
+                            <li>Remote session monitoring</li>
+                            <li>Live intervention capabilities</li>
+                            <li>Customizable treatment protocols</li>
+                            <li>Patient communication systems</li>
+                            <li>Clinical outcome tracking</li>
+                        </ul>
+                    </div>
+
+                    <div class="improvement-card">
+                        <h4>
+                            <svg class="improvement-icon" viewBox="0 0 24 24">
+                                <circle cx="12" cy="12" r="5"/>
+                                <path d="m12 1-3 3h6l-3-3zM21 12l-3-3v6l3-3zM12 23l3-3H9l3 3zM3 12l3 3V9l-3 3z"/>
+                            </svg>
+                            Accessibility Design
+                        </h4>
+                        <ul>
+                            <li>Motion sickness prevention</li>
+                            <li>Comfort settings optimization</li>
+                            <li>Multi-sensory accessibility</li>
+                            <li>Cognitive load management</li>
+                            <li>Universal design principles</li>
+                        </ul>
+                    </div>
+
+                    <div class="improvement-card">
+                        <h4>
+                            <svg class="improvement-icon" viewBox="0 0 24 24">
+                                <rect x="3" y="11" width="18" height="10" rx="2" ry="2"/>
+                                <circle cx="12" cy="5" r="2"/>
+                                <path d="m12 7.5-4 4 4 4 4-4-4-4z"/>
+                            </svg>
+                            AI-Powered Personalization
+                        </h4>
+                        <ul>
+                            <li>Adaptive therapy algorithms</li>
+                            <li>Personalized exposure scenarios</li>
+                            <li>Intelligent pacing systems</li>
+                            <li>Predictive anxiety modeling</li>
+                            <li>Machine learning optimization</li>
+                        </ul>
+                    </div>
+
+                    <div class="improvement-card">
+                        <h4>
+                            <svg class="improvement-icon" viewBox="0 0 24 24">
+                                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+                            </svg>
+                            Safety & Ethics
+                        </h4>
+                        <ul>
+                            <li>Patient consent protocols</li>
+                            <li>Emergency intervention systems</li>
+                            <li>Data privacy compliance</li>
+                            <li>Clinical ethics integration</li>
+                            <li>Trauma-informed design</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="impact" class="section">
+            <div class="container">
+                <h2 class="section-title">Development Status & Impact</h2>
+                
+                <div class="improvements-grid">
+                    <div class="improvement-card">
+                        <h4>
+                            <svg class="improvement-icon" viewBox="0 0 24 24">
+                                <polyline points="22,12 18,12 15,21 9,3 6,12 2,12"/>
+                            </svg>
+                            Patient Outcomes
+                        </h4>
+                        <ul>
+                            <li>In development</li>
+                            <li>Clinical trials planned</li>
+                            <li>Patient recruitment phase</li>
+                            <li>Outcome metrics being defined</li>
+                            <li>Research protocols established</li>
+                            <li>Safety measures implemented</li>
+                        </ul>
+                    </div>
+
+                    <div class="improvement-card">
+                        <h4>
+                            <svg class="improvement-icon" viewBox="0 0 24 24">
+                                <circle cx="12" cy="12" r="10"/>
+                                <circle cx="12" cy="12" r="6"/>
+                                <circle cx="12" cy="12" r="2"/>
+                            </svg>
+                            Clinical Efficiency
+                        </h4>
+                        <ul>
+                            <li>In development</li>
+                            <li>Workflow optimization planned</li>
+                            <li>Therapist training modules designed</li>
+                            <li>Cost-benefit analysis pending</li>
+                            <li>Remote access solutions built</li>
+                            <li>Treatment protocols standardized</li>
+                        </ul>
+                    </div>
+
+                    <div class="improvement-card">
+                        <h4>
+                            <svg class="improvement-icon" viewBox="0 0 24 24">
+                                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+                            </svg>
+                            Platform Performance
+                        </h4>
+                        <ul>
+                            <li>In development</li>
+                            <li>VR optimization ongoing</li>
+                            <li>Latency testing in progress</li>
+                            <li>HIPAA compliance framework ready</li>
+                            <li>Support infrastructure planned</li>
+                            <li>Cross-platform compatibility built</li>
+                        </ul>
+                    </div>
+
+                    <div class="improvement-card">
+                        <h4>
+                            <svg class="improvement-icon" viewBox="0 0 24 24">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                <circle cx="9" cy="7" r="4"/>
+                                <path d="m22 21-3-3m0 0a5.5 5.5 0 1 1-7.78-7.78 5.5 5.5 0 0 1 7.78 7.78Z"/>
+                            </svg>
+                            Development Progress
+                        </h4>
+                        <ul>
+                            <li>In development</li>
+                            <li>Clinical partnerships established</li>
+                            <li>Research collaborations active</li>
+                            <li>Regulatory consultation ongoing</li>
+                            <li>Healthcare pilot programs planned</li>
+                            <li>Industry validation in progress</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Technical Innovation</h2>
+                
+                <div class="section-content">
+                    <p><strong>VR Interface Design:</strong> Created intuitive VR interfaces that minimize cognitive load while maximizing therapeutic engagement. Implemented advanced comfort settings, motion sickness prevention, and accessibility features that work across diverse patient populations.</p>
+                    
+                    <p><strong>Real-time Biometric Integration:</strong> Designed seamless integration with heart rate monitors, galvanic skin response sensors, and eye tracking to provide therapists with real-time patient state information without disrupting the therapeutic experience.</p>
+                    
+                    <p><strong>AI-Driven Personalization:</strong> Developed machine learning algorithms that adapt exposure scenarios based on individual patient responses, creating personalized therapy progression paths that optimize treatment efficacy while maintaining safety protocols.</p>
+                    
+                    <p><strong>Clinical Workflow Integration:</strong> Built comprehensive therapist dashboards and patient management systems that integrate with existing electronic health records and clinical workflows, ensuring seamless adoption in healthcare environments.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <h2 class="footer-title">Get In Touch.</h2>
+                <p class="footer-description">I'm currently available for freelance work and exciting new opportunities. If you have a project in mind or just want to say hello, feel free to reach out.</p>
+                
+                <div class="footer-links">
+                    <a href="mailto:ssteele23@icloud.com" class="footer-link">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="currentColor" stroke-width="2"/>
+                            <polyline points="22,6 12,13 2,6" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                        ssteele23@icloud.com
+                    </a>
+                    
+                    <a href="https://www.linkedin.com/in/sonnysteele/" target="_blank" rel="noopener" class="footer-link">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16 8C17.5913 8 19.1174 8.63214 20.2426 9.75736C21.3679 10.8826 22 12.4087 22 14V21H18V14C18 13.4696 17.7893 12.9609 17.4142 12.5858C17.0391 12.2107 16.5304 12 16 12C15.4696 12 14.9609 12.2107 14.5858 12.5858C14.2107 12.9609 14 13.4696 14 14V21H10V14C10 12.4087 10.6321 10.8826 11.7574 9.75736C12.8826 8.63214 14.4087 8 16 8V8Z" stroke="currentColor" stroke-width="2"/>
+                            <rect x="2" y="9" width="4" height="12" stroke="currentColor" stroke-width="2"/>
+                            <circle cx="4" cy="4" r="2" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                        LinkedIn Profile
+                    </a>
+                    
+                    <a href="tel:+14135706737" class="footer-link">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M22 16.92V19.92C22 20.5 21.59 21 21.09 21C10.03 21 1 11.97 1 0.91C1 0.41 1.41 0 1.91 0H4.91C5.51 0 6.01 0.41 6.01 0.91C6.01 2.66 6.27 4.37 6.76 5.99C6.89 6.38 6.78 6.81 6.49 7.1L4.74 8.85C6.42 12.05 9.05 14.68 12.25 16.36L13.99 14.61C14.28 14.32 14.71 14.21 15.1 14.34C16.72 14.83 18.43 15.09 20.18 15.09C20.68 15.09 21.09 15.5 21.09 16.1V19.1C21.09 19.5 20.68 19.91 20.18 19.91Z" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                        +1 (413) 570-6737
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+
+        // Mobile menu toggle
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        if (mobileMenuToggle && navLinks) {
+            mobileMenuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                mobileMenuToggle.classList.toggle('active');
+            });
+
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!navLinks.contains(e.target) && !mobileMenuToggle.contains(e.target)) {
+                    navLinks.classList.remove('active');
+                    mobileMenuToggle.classList.remove('active');
+                }
+            });
+
+            // Close mobile menu when clicking on links
+            const mobileNavLinks = navLinks.querySelectorAll('a');
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                    mobileMenuToggle.classList.remove('active');
+                });
+            });
+        }
+
+        // Resume link functionality (redirect to main site)
+        const resumeLinkHeader = document.getElementById('resumeLinkHeader');
+        if (resumeLinkHeader) {
+            resumeLinkHeader.addEventListener('click', () => {
+                window.open('https://sonny-steele.com', '_blank');
+            });
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
