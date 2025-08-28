@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kasisto Generative AI Platform - UX Case Study | Sonny Steele</title>
+    <meta name="description" content="UX case study: Designing Kasisto conversational AI platform for banking and finance. Creating intuitive chatbot interfaces and AI-powered customer service solutions.">
+    <meta name="author" content="Sonny Steele">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://sonny-steele.com/portfolio-dark-theme/case-studies/kasisto/">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://sonny-steele.com/portfolio-dark-theme/case-studies/kasisto/">
+    <meta property="og:title" content="Kasisto Generative AI Platform - UX Case Study | Sonny Steele">
+    <meta property="og:description" content="UX case study: Designing Kasisto conversational AI platform for banking and finance. Creating intuitive chatbot interfaces and AI-powered customer service solutions.">
+    <meta property="og:image" content="https://sonny-steele.com/Case%20Studies/Kasisto/images/ai-dashboard.png">
+    <meta property="og:site_name" content="Sonny Steele - AI UX Designer">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://sonny-steele.com/portfolio-dark-theme/case-studies/kasisto/">
+    <meta property="twitter:title" content="Kasisto Generative AI Platform - UX Case Study">
+    <meta property="twitter:description" content="UX case study: Designing Kasisto conversational AI platform for banking and finance. Creating intuitive chatbot interfaces.">
+    <meta property="twitter:image" content="https://sonny-steele.com/Case%20Studies/Kasisto/images/ai-dashboard.png">
+    
+    <!-- Schema.org markup for case study -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CreativeWork",
+      "name": "Kasisto Generative AI Platform - UX Case Study",
+      "description": "UX case study: Designing Kasisto conversational AI platform for banking and finance. Creating intuitive chatbot interfaces and AI-powered customer service solutions.",
+      "url": "https://sonny-steele.com/portfolio-dark-theme/case-studies/kasisto/",
+      "image": "https://sonny-steele.com/Case%20Studies/Kasisto/images/ai-dashboard.png",
+      "author": {
+        "@type": "Person",
+        "name": "Sonny Steele",
+        "jobTitle": "AI UX Designer & Design Leader",
+        "url": "https://sonny-steele.com/index.html"
+      },
+      "datePublished": "2024-01-01",
+      "keywords": "Conversational AI, Chatbot Design, Banking UX, Financial Technology, AI Platform, Customer Service, Generative AI, FinTech",
+      "genre": "UX Case Study",
+      "about": {
+        "@type": "SoftwareApplication",
+        "name": "Kasisto Generative AI Platform",
+        "applicationCategory": "Business Software",
+        "description": "Conversational AI platform for banking and financial services with chatbot interfaces"
+      }
+    }
+    </script>
+    
+    <meta name="keywords" content="Kasisto, conversational AI, UX case study, chatbot design, banking UX, fintech, AI platform, customer service, Sonny Steele">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            line-height: 1.6;
+            color: #ffffff;
+            background: #0a0a0a;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            padding: 20px 0;
+            border-bottom: 1px solid #333333;
+            position: sticky;
+            top: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #a0a0a0;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #ffffff;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            gap: 4px;
+        }
+
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: #ffffff;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .mobile-menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+
+        .mobile-menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        .back-link {
+            color: #a0a0a0;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: #ffffff;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 50%, #ff6b35 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Content Sections */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section:nth-child(even) {
+            background: #111111;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 20px;
+        }
+
+        .section-title p {
+            font-size: 1.2rem;
+            color: #a0a0a0;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Wireframes Grid */
+        .wireframes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .wireframe-item {
+            background: #1a1a1a;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            border: 1px solid #333333;
+        }
+
+        .wireframe-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(255, 107, 53, 0.2);
+            border-color: #ff6b35;
+        }
+
+        .wireframe-image {
+            width: 100%;
+            height: 300px;
+            background: #111111;
+            overflow: hidden;
+        }
+
+        .wireframe-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+        }
+
+        .wireframe-image img:hover {
+            opacity: 0.8;
+        }
+
+        .wireframe-content {
+            padding: 30px;
+        }
+
+        .wireframe-content h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 15px;
+        }
+
+        .wireframe-content p {
+            color: #a0a0a0;
+            line-height: 1.6;
+        }
+
+        /* Before After Section */
+        .before-after-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .comparison-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .comparison-header span {
+            display: inline-flex;
+            align-items: center;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .comparison-header .before {
+            color: #a0a0a0;
+        }
+
+        .comparison-header .after {
+            color: #ff6b35;
+        }
+
+        .comparison-header .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .comparison-header .before .indicator {
+            border: 2px solid #a0a0a0;
+        }
+
+        .comparison-header .after .indicator {
+            background: #ff6b35;
+        }
+
+        .comparison-image {
+            background: #1a1a1a;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+            border: 1px solid #333333;
+        }
+
+        .comparison-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+        }
+
+        .comparison-image img:hover {
+            opacity: 0.8;
+        }
+
+        .comparison-details {
+            margin-top: 20px;
+            padding: 20px;
+            background: #111111;
+            border-radius: 8px;
+            border: 1px solid #333333;
+        }
+
+        .comparison-details h4 {
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+
+        .comparison-details ul {
+            color: #a0a0a0;
+            line-height: 1.6;
+            padding-left: 20px;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            padding: 60px 20px;
+            overflow-y: auto;
+        }
+
+        .modal-content {
+            max-width: min(95vw, 1440px);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: auto;
+            min-height: calc(100vh - 120px);
+        }
+
+        .modal-image {
+            max-width: 100%;
+            width: auto;
+            height: auto;
+            border-radius: 8px;
+            object-fit: contain;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
+        }
+
+        .modal-close {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+            cursor: pointer;
+            background: rgba(0, 0, 0, 0.5);
+            border: none;
+            padding: 10px;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1001;
+        }
+
+        .modal-close:hover {
+            opacity: 0.7;
+        }
+
+        /* Mobile Navigation */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 81px;
+                right: -100%;
+                width: 100%;
+                height: calc(100vh - 81px);
+                background: rgba(10, 10, 10, 0.95);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: center;
+                padding-top: 50px;
+                gap: 30px;
+                font-size: 1.2rem;
+                transition: right 0.3s ease;
+                z-index: 999;
+                border-left: 1px solid #333333;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .nav-links li {
+                text-align: center;
+            }
+
+            .nav-links a {
+                display: block;
+                padding: 15px 30px;
+                border-radius: 8px;
+                transition: all 0.2s ease;
+            }
+
+            .nav-links a:hover {
+                background: rgba(255, 255, 255, 0.05);
+            }
+
+            .mobile-menu-toggle {
+                display: flex;
+                z-index: 1000;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .wireframes-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .wireframe-image {
+                height: 250px;
+            }
+
+            .before-after-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="../../index.html" class="logo">Sonny Steele</a>
+            <ul class="nav-links">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../../../index.html#work">Work</a></li>
+                <li><a href="../../index.html#contact">Contact</a></li>
+                <li><a href="javascript:void(0)" id="resumeLinkHeader">Resume</a></li>
+            </ul>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Kasisto Generative AI Platform</h1>
+                <p>Comprehensive conversation management and analytics dashboards for enterprise AI applications. Created intuitive interfaces for intent configuration, real-time monitoring, and fraud detection systems.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Before & After: Interface Transformation</h2>
+                    <p>Complete redesign of the Kasisto platform from outdated interface to modern AI dashboard</p>
+                </div>
+                
+                <div class="before-after-container">
+                    <div class="before-section">
+                        <div class="comparison-header">
+                            <span class="before">
+                                <span class="indicator"></span>
+                                Before: Outdated Interface
+                            </span>
+                        </div>
+                        <div class="comparison-image">
+                            <img src="../../../Case Studies/Kasisto/images/old-dashboard.png" alt="Old Kasisto Dashboard" onclick="openModal(this.src)" loading="eager" width="500" height="350">
+                        </div>
+                        <div class="comparison-details">
+                            <h4>Legacy Dashboard Issues:</h4>
+                            <ul>
+                                <li>Outdated visual design</li>
+                                <li>Poor data visualization</li>
+                                <li>Limited real-time capabilities</li>
+                                <li>Complex navigation structure</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="after-section">
+                        <div class="comparison-header">
+                            <span class="after">
+                                <span class="indicator"></span>
+                                After: Modern AI Platform
+                            </span>
+                        </div>
+                        <div class="comparison-image">
+                            <img src="../../../Case Studies/Kasisto/images/Dashboards - Dashboards.png" alt="New Kasisto AI Dashboard" onclick="openModal(this.src)" loading="eager" width="500" height="350">
+                        </div>
+                        <div class="comparison-details">
+                            <h4>Modern Platform Benefits:</h4>
+                            <ul>
+                                <li>Clean, modern interface design</li>
+                                <li>Advanced data visualization</li>
+                                <li>Real-time analytics and monitoring</li>
+                                <li>Intuitive navigation and workflows</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="before-after-container" style="margin-top: 80px;">
+                    <div class="before-section">
+                        <div class="comparison-header">
+                            <span class="before">
+                                <span class="indicator"></span>
+                                Before: Legacy Intent Management
+                            </span>
+                        </div>
+                        <div class="comparison-image">
+                            <img src="../../../Case Studies/Kasisto/images/old-intents.png" alt="Old Intent Management Interface" onclick="openModal(this.src)" loading="lazy" width="500" height="350">
+                        </div>
+                        <div class="comparison-details">
+                            <h4>Legacy Intent Issues:</h4>
+                            <ul>
+                                <li>Basic list view with limited functionality</li>
+                                <li>No visual intent configuration</li>
+                                <li>Difficult training data management</li>
+                                <li>Limited analytics and insights</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="after-section">
+                        <div class="comparison-header">
+                            <span class="after">
+                                <span class="indicator"></span>
+                                After: Advanced Intent Configuration
+                            </span>
+                        </div>
+                        <div class="comparison-image">
+                            <img src="../../../Case Studies/Kasisto/images/intent-management.png" alt="New Intent Management Interface" onclick="openModal(this.src)" loading="lazy" width="500" height="350">
+                        </div>
+                        <div class="comparison-details">
+                            <h4>Modern Intent Benefits:</h4>
+                            <ul>
+                                <li>Visual intent configuration interface</li>
+                                <li>Advanced training data management</li>
+                                <li>Real-time performance monitoring</li>
+                                <li>Comprehensive analytics dashboard</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="before-after-container" style="margin-top: 80px;">
+                    <div class="before-section">
+                        <div class="comparison-header">
+                            <span class="before">
+                                <span class="indicator"></span>
+                                Before: Basic Response Management
+                            </span>
+                        </div>
+                        <div class="comparison-image">
+                            <img src="../../../Case Studies/Kasisto/images/old-responses.png" alt="Old Response Management Interface" onclick="openModal(this.src)" loading="lazy" width="500" height="350">
+                        </div>
+                        <div class="comparison-details">
+                            <h4>Legacy Response Issues:</h4>
+                            <ul>
+                                <li>Simple text-based response editor</li>
+                                <li>No dynamic content capabilities</li>
+                                <li>Limited response validation</li>
+                                <li>Basic testing functionality</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="after-section">
+                        <div class="comparison-header">
+                            <span class="after">
+                                <span class="indicator"></span>
+                                After: Dynamic Content Management
+                            </span>
+                        </div>
+                        <div class="comparison-image">
+                            <img src="../../../Case Studies/Kasisto/images/Dashboards - Intent Landing.png" alt="New Content Management Interface" onclick="openModal(this.src)" loading="lazy" width="500" height="350">
+                        </div>
+                        <div class="comparison-details">
+                            <h4>Modern Content Benefits:</h4>
+                            <ul>
+                                <li>Rich content editor with templates</li>
+                                <li>Dynamic response generation</li>
+                                <li>Advanced validation and testing</li>
+                                <li>Multi-channel content optimization</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Enhanced Dashboard Designs</h2>
+                    <p>Latest visual design iterations showcasing improved user experience and modern interface aesthetics</p>
+                </div>
+                
+                <div class="wireframes-grid">
+                    <div class="wireframe-item">
+                        <div class="wireframe-image">
+                            <img src="../../../Case Studies/Kasisto/images/Dashboards - Dashboards.png" alt="Main Dashboards Overview Interface" onclick="openModal(this.src)" loading="lazy" width="350" height="250">
+                        </div>
+                        <div class="wireframe-content">
+                            <h3>Dashboards Overview</h3>
+                            <p>Comprehensive dashboard hub providing centralized access to all analytics, monitoring, and management tools with improved visual hierarchy.</p>
+                        </div>
+                    </div>
+
+                    <div class="wireframe-item">
+                        <div class="wireframe-image">
+                            <img src="../../../Case Studies/Kasisto/images/Dashboard - Sessions Data.png" alt="Sessions Data Analytics Dashboard" onclick="openModal(this.src)" loading="lazy" width="350" height="250">
+                        </div>
+                        <div class="wireframe-content">
+                            <h3>Sessions Data Analytics</h3>
+                            <p>Enhanced session analytics dashboard with real-time data visualization, performance metrics, and detailed conversation insights.</p>
+                        </div>
+                    </div>
+
+                    <div class="wireframe-item">
+                        <div class="wireframe-image">
+                            <img src="../../../Case Studies/Kasisto/images/Dashboards - Intent Landing.png" alt="Intent Landing Dashboard Interface" onclick="openModal(this.src)" loading="lazy" width="350" height="250">
+                        </div>
+                        <div class="wireframe-content">
+                            <h3>Intent Landing Dashboard</h3>
+                            <p>Streamlined intent management interface with improved navigation, visual feedback, and workflow optimization for better user experience.</p>
+                        </div>
+                    </div>
+
+                    <div class="wireframe-item">
+                        <div class="wireframe-image">
+                            <img src="../../../Case Studies/Kasisto/images/Dashboards - Intent Landing-1.png" alt="Intent Landing Dashboard Variant" onclick="openModal(this.src)" loading="lazy" width="350" height="250">
+                        </div>
+                        <div class="wireframe-content">
+                            <h3>Intent Landing Dashboard Alternative</h3>
+                            <p>Alternative layout approach for the intent landing interface, exploring different information architecture and user flow patterns.</p>
+                        </div>
+                    </div>
+
+                    <div class="wireframe-item">
+                        <div class="wireframe-image">
+                            <img src="../../../Case Studies/Kasisto/images/Dashboard - Input Methods - Details.png" alt="Input Methods Details" onclick="openModal(this.src)" loading="lazy" width="350" height="250">
+                        </div>
+                        <div class="wireframe-content">
+                            <h3>Input Methods Configuration</h3>
+                            <p>Detailed configuration interface for setting up conversation input methods and channel-specific parameters.</p>
+                        </div>
+                    </div>
+
+                    <div class="wireframe-item">
+                        <div class="wireframe-image">
+                            <img src="../../../Case Studies/Kasisto/images/Dashboards - Intent Landing.png" alt="Intent Landing Screen" onclick="openModal(this.src)" loading="lazy" width="350" height="250">
+                        </div>
+                        <div class="wireframe-content">
+                            <h3>Intent Management Landing</h3>
+                            <p>Main interface for managing AI conversation intents with overview of all configured intents and their status.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer style="padding: 60px 0; background: #ff6b35; color: white; text-align: center;">
+        <div class="container">
+            <h3 style="font-size: 2rem; margin-bottom: 20px;">Ready to discuss your project?</h3>
+            <p style="color: rgba(255, 255, 255, 0.8); margin-bottom: 30px;">Let's create something amazing together.</p>
+            <a href="../../index.html#contact" style="color: white; text-decoration: none; font-weight: 600;">Get in touch →</a>
+        </div>
+    </footer>
+
+    <!-- Image Modal -->
+    <div class="modal" id="imageModal">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">&times;</button>
+            <img class="modal-image" id="modalImage" src="" alt="">
+        </div>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        if (mobileMenuToggle && navLinks) {
+            mobileMenuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                mobileMenuToggle.classList.toggle('active');
+            });
+
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!navLinks.contains(e.target) && !mobileMenuToggle.contains(e.target)) {
+                    navLinks.classList.remove('active');
+                    mobileMenuToggle.classList.remove('active');
+                }
+            });
+
+            // Close mobile menu when clicking on links
+            const mobileNavLinks = navLinks.querySelectorAll('a');
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                    mobileMenuToggle.classList.remove('active');
+                });
+            });
+        }
+
+        // Resume link functionality (redirect to main site)
+        const resumeLinkHeader = document.getElementById('resumeLinkHeader');
+        if (resumeLinkHeader) {
+            resumeLinkHeader.addEventListener('click', () => {
+                window.open('../../../index.html', '_blank');
+            });
+        }
+
+        // Modal functionality
+        const modal = document.getElementById('imageModal');
+        const modalImage = document.getElementById('modalImage');
+        const modalClose = document.getElementById('modalClose');
+
+        // Open modal function (called by onclick)
+        function openModal(imageSrc, imageAlt = '') {
+            modal.classList.add('active');
+            modalImage.src = imageSrc;
+            modalImage.alt = imageAlt;
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Add click listeners to all images
+        function addImageClickListeners() {
+            const images = document.querySelectorAll('.wireframe-image img, .comparison-image img, img[onclick]');
+            images.forEach(img => {
+                if (!img.onclick) { // Only add if no onclick already exists
+                    img.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        openModal(img.src, img.alt);
+                    });
+                }
+                // Add cursor pointer style
+                img.style.cursor = 'pointer';
+            });
+        }
+
+        // Close modal
+        function closeModal() {
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        modalClose.addEventListener('click', closeModal);
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
+                closeModal();
+            }
+        });
+
+        // Initialize modal listeners when page loads
+        addImageClickListeners();
+    </script>
+</body>
+</html>

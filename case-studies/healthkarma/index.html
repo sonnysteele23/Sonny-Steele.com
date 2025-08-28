@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HealthKarma Healthcare Platform - UX Case Study | Sonny Steele</title>
+    <meta name="description" content="UX case study: Designing HealthKarma healthcare platform for patient care management. Streamlining medical workflows and improving healthcare accessibility.">
+    <meta name="author" content="Sonny Steele">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://sonny-steele.com/portfolio-dark-theme/case-studies/healthkarma/">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; line-height: 1.6; color: #ffffff; background: #0a0a0a; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        
+        header { padding: 20px 0; border-bottom: 1px solid #333333; position: sticky; top: 0; background: rgba(10, 10, 10, 0.95); backdrop-filter: blur(10px); z-index: 100; }
+        nav { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 24px; font-weight: 700; color: #ffffff; text-decoration: none; }
+        .back-link { display: flex; align-items: center; gap: 8px; color: #a0a0a0; text-decoration: none; font-weight: 500; transition: all 0.3s ease; padding: 8px 16px; border-radius: 8px; }
+        .back-link:hover { color: #ffffff; background: rgba(255, 255, 255, 0.05); }
+        
+        .hero { padding: 80px 0; background: linear-gradient(135deg, #ff6b35 0%, #f7931e 50%, #ff6b35 100%); color: white; text-align: center; }
+        .hero h1 { font-size: 3rem; font-weight: 800; margin-bottom: 20px; }
+        .hero p { font-size: 1.3rem; opacity: 0.9; max-width: 800px; margin: 0 auto; }
+        
+        .section { padding: 80px 0; }
+        .section:nth-child(even) { background: #111111; }
+        .section-title { text-align: center; margin-bottom: 60px; }
+        .section-title h2 { font-size: 2.5rem; font-weight: 800; color: #ffffff; margin-bottom: 20px; }
+        .section-title p { font-size: 1.2rem; color: #a0a0a0; max-width: 600px; margin: 0 auto; }
+        
+        .highlights-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px; margin-top: 60px; }
+        .highlight-item { background: #1a1a1a; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3); transition: all 0.3s ease; border: 1px solid #333333; }
+        .highlight-item:hover { transform: translateY(-8px); box-shadow: 0 12px 40px rgba(255, 107, 53, 0.2); border-color: #ff6b35; }
+        
+        .highlight-image { width: 100%; height: 300px; background: #111111; overflow: hidden; }
+        .highlight-image img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; cursor: pointer; transition: opacity 0.3s ease; }
+        .highlight-image img:hover { opacity: 0.8; }
+        
+        .highlight-content { padding: 30px; }
+        .highlight-content h3 { font-size: 1.3rem; font-weight: 700; color: #ffffff; margin-bottom: 15px; }
+        .highlight-content p { color: #a0a0a0; line-height: 1.6; }
+        
+        .process-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; margin-top: 60px; }
+        .process-item { text-align: center; padding: 40px 20px; background: #1a1a1a; border-radius: 12px; box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3); border: 1px solid #333333; transition: all 0.3s ease; }
+        .process-item:hover { border-color: #ff6b35; box-shadow: 0 8px 32px rgba(255, 107, 53, 0.1); }
+        
+        .process-number { width: 60px; height: 60px; background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700; color: white; margin: 0 auto 20px; }
+        .process-item h3 { font-size: 1.3rem; font-weight: 700; color: #ffffff; margin-bottom: 15px; }
+        .process-item p { color: #a0a0a0; line-height: 1.6; }
+        
+        .tag { background: rgba(255, 107, 53, 0.15); color: #ff6b35; padding: 6px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 500; border: 1px solid rgba(255, 107, 53, 0.2); }
+        .project-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+        
+        /* Modal Styles */
+        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.9); }
+        .modal.active { display: flex; align-items: flex-start; justify-content: center; padding: 60px 20px; overflow-y: auto; }
+        .modal-content { max-width: min(95vw, 1440px); position: relative; display: flex; align-items: center; justify-content: center; width: 100%; height: auto; min-height: calc(100vh - 120px); }
+        .modal-image { max-width: 100%; max-height: 100%; width: auto; height: auto; border-radius: 8px; object-fit: contain; }
+        .modal-close { position: fixed; top: 20px; right: 20px; color: white; font-size: 2rem; font-weight: bold; cursor: pointer; background: rgba(0, 0, 0, 0.5); border: none; padding: 10px; border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; z-index: 1001; }
+        .modal-close:hover { opacity: 0.7; }
+        
+        footer { padding: 60px 0; background: #ff6b35; color: white; text-align: center; }
+        footer h3 { font-size: 2rem; margin-bottom: 20px; }
+        footer p { color: rgba(255, 255, 255, 0.8); margin-bottom: 30px; }
+        footer a { color: white; text-decoration: none; font-weight: 600; transition: opacity 0.3s ease; }
+        footer a:hover { opacity: 0.8; }
+        
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .hero p { font-size: 1.1rem; }
+            .highlights-grid { grid-template-columns: 1fr; gap: 30px; }
+            .highlight-image { height: 250px; }
+            .process-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="../../index.html" class="logo">Sonny Steele</a>
+            <a href="../../index.html" class="back-link">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Back to Portfolio
+            </a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>HealthKarma Healthcare Platform</h1>
+                <p>Designing comprehensive healthcare cost management and wellness platform to help families make informed healthcare decisions and reduce medical expenses. Complete platform wireframes and visual design for healthcare cost tracking, family health management, and savings optimization.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Design Philosophy</h2>
+                    <p>Creating transparent healthcare cost management through intuitive design and family-centered workflows</p>
+                </div>
+                
+                <div class="process-grid">
+                    <div class="process-item">
+                        <div class="process-number">1</div>
+                        <h3>Cost Transparency</h3>
+                        <p>Clear visualization of healthcare costs, deductibles, and savings opportunities to empower families with financial decision-making insights.</p>
+                    </div>
+                    
+                    <div class="process-item">
+                        <div class="process-number">2</div>
+                        <h3>Family-Centered Design</h3>
+                        <p>Unified dashboard for tracking multiple family members' health metrics, appointments, and cost breakdowns in one comprehensive view.</p>
+                    </div>
+                    
+                    <div class="process-item">
+                        <div class="process-number">3</div>
+                        <h3>Preventive Focus</h3>
+                        <p>Health scoring system and wellness tracking that encourages preventive care to reduce long-term healthcare costs and improve outcomes.</p>
+                    </div>
+                    
+                    <div class="process-item">
+                        <div class="process-number">4</div>
+                        <h3>Integrated Marketplace</h3>
+                        <p>Seamless integration with healthcare providers and services, offering member pricing and savings recommendations based on individual needs.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>HealthKarma Platform Designs</h2>
+                    <p>Comprehensive healthcare cost management and wellness platform design</p>
+                </div>
+                
+                <div class="highlights-grid">
+                    <div class="highlight-item">
+                        <div class="highlight-image">
+                            <img src="../../../Case Studies/HealthCare/images/1.0.1 - MVP - Desktop - Membership Portal.png" alt="HealthKarma Platform" onclick="openModal(this.src)" loading="eager" width="600" height="400">
+                        </div>
+                        <div class="highlight-content">
+                            <h3>HealthKarma Platform</h3>
+                            <p>The main landing page establishes the platform's value proposition with clear navigation, trust indicators, and primary user actions. Features healthcare decision tools, cost savings messaging, and trusted partner logos.</p>
+                            <div class="project-tags">
+                                <span class="tag">Value Proposition Messaging</span>
+                                <span class="tag">Primary Action Buttons</span>
+                                <span class="tag">Trust Indicators</span>
+                                <span class="tag">Healthcare Decision Support</span>
+                                <span class="tag">Mobile-Responsive Navigation</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="highlight-item">
+                        <div class="highlight-image">
+                            <img src="../../../Case Studies/HealthCare/images/healthkarma-dashboard.png" alt="HealthKarma Dashboard" onclick="openModal(this.src)" loading="lazy" width="600" height="400">
+                        </div>
+                        <div class="highlight-content">
+                            <h3>Personal Health Dashboard</h3>
+                            <p>Comprehensive dashboard featuring personal health score with family view, cost tracking and breakdowns, appointment scheduling, healthcare store with member pricing, and savings recommendations.</p>
+                            <div class="project-tags">
+                                <span class="tag">Personal health score</span>
+                                <span class="tag">Cost tracking</span>
+                                <span class="tag">Appointment scheduling</span>
+                                <span class="tag">Member pricing</span>
+                                <span class="tag">Savings recommendations</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="highlight-item">
+                        <div class="highlight-image">
+                            <img src="../../../Case Studies/HealthCare/images/healthkarma-presentation.png" alt="HealthKarma Platform Presentation" onclick="openModal(this.src)" loading="lazy" width="600" height="400">
+                        </div>
+                        <div class="highlight-content">
+                            <h3>Platform Presentation</h3>
+                            <p>Comprehensive presentation showcasing the HealthKarma platform ecosystem, including personal health scoring, expense tracking, benefit optimization, and curated healthcare marketplace functionality.</p>
+                            <div class="project-tags">
+                                <span class="tag">Healthcare Cost Management</span>
+                                <span class="tag">Personal Health Scoring</span>
+                                <span class="tag">Family Health Tracking</span>
+                                <span class="tag">Benefit Optimization</span>
+                                <span class="tag">Healthcare Marketplace</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <h3>Ready to discuss your project?</h3>
+            <p>Let's create something amazing together.</p>
+            <a href="../../index.html#contact">Get in touch →</a>
+        </div>
+    </footer>
+
+    <!-- Image Modal -->
+    <div class="modal" id="imageModal">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">&times;</button>
+            <img class="modal-image" id="modalImage" src="" alt="">
+        </div>
+    </div>
+
+    <script>
+        const modal = document.getElementById('imageModal');
+        const modalImage = document.getElementById('modalImage');
+        const modalClose = document.getElementById('modalClose');
+
+        function openModal(imageSrc, imageAlt = '') {
+            modal.classList.add('active');
+            modalImage.src = imageSrc;
+            modalImage.alt = imageAlt;
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        modalClose.addEventListener('click', closeModal);
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
+                closeModal();
+            }
+        });
+
+        const images = document.querySelectorAll('.highlight-image img');
+        images.forEach(img => {
+            if (!img.onclick) {
+                img.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    openModal(img.src, img.alt);
+                });
+            }
+            img.style.cursor = 'pointer';
+        });
+    </script>
+</body>
+</html>

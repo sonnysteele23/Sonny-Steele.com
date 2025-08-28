@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BankAI Analytics Platform - AI Dashboard UX Case Study | Sonny Steele</title>
+    <meta name="description" content="UX case study: Designing comprehensive AI analytics dashboard for banking chatbot performance, sentiment analysis, and data export capabilities. Enterprise-level AI platform design.">
+    <meta name="author" content="Sonny Steele">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://sonny-steele.com/portfolio-dark-theme/case-studies/bankai-analytics/">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://sonny-steele.com/portfolio-dark-theme/case-studies/bankai-analytics/">
+    <meta property="og:title" content="BankAI Analytics Platform - AI Dashboard UX Case Study | Sonny Steele">
+    <meta property="og:description" content="UX case study: Designing comprehensive AI analytics dashboard for banking chatbot performance, sentiment analysis, and data export capabilities.">
+    <meta property="og:image" content="https://sonny-steele.com/Case%20Studies/BankAI%20Analytics/images/AIChatbotDashboard.png">
+    <meta property="og:site_name" content="Sonny Steele - AI UX Designer">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://sonny-steele.com/portfolio-dark-theme/case-studies/bankai-analytics/">
+    <meta property="twitter:title" content="BankAI Analytics Platform - AI Dashboard UX Case Study">
+    <meta property="twitter:description" content="UX case study: Designing comprehensive AI analytics dashboard for banking chatbot performance and sentiment analysis.">
+    <meta property="twitter:image" content="https://sonny-steele.com/Case%20Studies/BankAI%20Analytics/images/AIChatbotDashboard.png">
+    
+    <!-- Schema.org markup for case study -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CreativeWork",
+      "name": "BankAI Analytics Platform - AI Dashboard UX Case Study",
+      "description": "UX case study: Designing comprehensive AI analytics dashboard for banking chatbot performance, sentiment analysis, and data export capabilities.",
+      "url": "https://sonny-steele.com/portfolio-dark-theme/case-studies/bankai-analytics/",
+      "image": "https://sonny-steele.com/Case%20Studies/BankAI%20Analytics/images/AIChatbotDashboard.png",
+      "author": {
+        "@type": "Person",
+        "name": "Sonny Steele",
+        "jobTitle": "AI UX Designer & Design Leader",
+        "url": "https://sonny-steele.com/index.html"
+      },
+      "datePublished": "2024-01-01",
+      "keywords": "AI Analytics, Banking AI, Chatbot Dashboard, Sentiment Analysis, Enterprise AI UX, Data Export, API Design, Financial Technology",
+      "genre": "UX Case Study",
+      "about": {
+        "@type": "SoftwareApplication",
+        "name": "BankAI Analytics Platform",
+        "applicationCategory": "Enterprise Analytics Software",
+        "description": "AI-powered analytics dashboard for banking chatbot performance and customer sentiment analysis"
+      }
+    }
+    </script>
+    
+    <meta name="keywords" content="BankAI Analytics, AI dashboard UX, banking AI, chatbot analytics, sentiment analysis, enterprise AI design, financial UX, data export, API design, Sonny Steele">
+    <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            line-height: 1.6;
+            color: #ffffff;
+            background: #0a0a0a;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            padding: 20px 0;
+            border-bottom: 1px solid #333333;
+            position: sticky;
+            top: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #a0a0a0;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #ffffff;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            gap: 4px;
+        }
+
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: #ffffff;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .mobile-menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+
+        .mobile-menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 50%, #ff6b35 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Content Sections */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section:nth-child(even) {
+            background: #111111;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 20px;
+        }
+
+        .section-title p {
+            font-size: 1.2rem;
+            color: #a0a0a0;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Dashboard Showcase */
+        .dashboard-showcase {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .dashboard-tile {
+            background: #1a1a1a;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 1px solid #333333;
+        }
+
+        .dashboard-tile:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 60px rgba(255, 107, 53, 0.2);
+            border-color: #ff6b35;
+        }
+
+        .dashboard-image {
+            width: 100%;
+            height: 500px;
+            background: #111111;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .dashboard-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+            display: block;
+        }
+
+        .dashboard-content {
+            padding: 40px;
+        }
+
+        .dashboard-content h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 20px;
+        }
+
+        .dashboard-content p {
+            color: #a0a0a0;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .dashboard-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            background: rgba(255, 107, 53, 0.15);
+            color: #ff6b35;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            border: 1px solid rgba(255, 107, 53, 0.2);
+        }
+
+        /* Process Section */
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .process-item {
+            text-align: center;
+            padding: 40px 20px;
+            background: #1a1a1a;
+            border-radius: 12px;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+            border: 1px solid #333333;
+            transition: all 0.3s ease;
+        }
+
+        .process-item:hover {
+            border-color: #ff6b35;
+            box-shadow: 0 8px 32px rgba(255, 107, 53, 0.1);
+        }
+
+        .process-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            margin: 0 auto 20px;
+        }
+
+        .process-item h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 15px;
+        }
+
+        .process-item p {
+            color: #a0a0a0;
+            line-height: 1.6;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 30px 20px;
+            background: #1a1a1a;
+            border-radius: 12px;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+            border-top: 4px solid #ff6b35;
+            border: 1px solid #333333;
+            border-top: 4px solid #ff6b35;
+            transition: all 0.3s ease;
+        }
+
+        .feature-item:hover {
+            box-shadow: 0 8px 32px rgba(255, 107, 53, 0.1);
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+
+        .feature-icon svg {
+            width: 24px;
+            height: 24px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .feature-item h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+
+        .feature-item p {
+            color: #a0a0a0;
+            line-height: 1.6;
+            font-size: 0.9rem;
+        }
+
+        /* Footer Styles */
+        .footer {
+            background: #000000;
+            color: white;
+            padding: 80px 0 60px;
+            position: relative;
+            overflow: visible;
+        }
+        
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: left;
+        }
+        
+        .footer-title {
+            font-size: 3.5rem;
+            font-weight: 400;
+            color: white;
+            margin-bottom: 30px;
+            line-height: 1.1;
+            font-family: Georgia, 'Times New Roman', serif;
+        }
+        
+        .footer-description {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.6;
+            margin-bottom: 40px;
+            max-width: 500px;
+        }
+        
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .footer-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 400;
+            transition: all 0.3s ease;
+            padding: 8px 0;
+        }
+        
+        .footer-link:hover {
+            color: white;
+            transform: translateX(5px);
+        }
+        
+        .footer-link svg {
+            flex-shrink: 0;
+            opacity: 0.8;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            padding: 60px 20px;
+            overflow-y: auto;
+        }
+
+        .modal-content {
+            max-width: min(95vw, 1440px);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: auto;
+            min-height: calc(100vh - 120px);
+        }
+
+        .modal-image {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            border-radius: 8px;
+            object-fit: contain;
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
+        }
+
+        .modal-close {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+            cursor: pointer;
+            background: rgba(0, 0, 0, 0.5);
+            border: none;
+            padding: 10px;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1001;
+        }
+
+        .modal-close:hover {
+            opacity: 0.7;
+        }
+
+        /* Carousel Navigation */
+        .carousel-nav {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            font-size: 24px;
+            padding: 20px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+            z-index: 1001;
+        }
+
+        .carousel-nav:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        .carousel-prev {
+            left: 20px;
+        }
+
+        .carousel-next {
+            right: 20px;
+        }
+
+        .carousel-dots {
+            position: absolute;
+            bottom: -60px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-dot.active {
+            background: white;
+            transform: scale(1.2);
+        }
+
+        .carousel-counter {
+            position: absolute;
+            bottom: -100px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 0.9rem;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 8px 16px;
+            border-radius: 20px;
+        }
+
+        /* Mobile Navigation */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 81px;
+                right: -100%;
+                width: 100%;
+                height: calc(100vh - 81px);
+                background: rgba(10, 10, 10, 0.95);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: center;
+                padding-top: 50px;
+                gap: 30px;
+                font-size: 1.2rem;
+                transition: right 0.3s ease;
+                z-index: 999;
+                border-left: 1px solid #333333;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .mobile-menu-toggle {
+                display: flex;
+                z-index: 1000;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .dashboard-image {
+                height: 300px;
+            }
+
+            .dashboard-content {
+                padding: 30px 20px;
+            }
+
+            .process-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .features-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+
+            .carousel-nav {
+                font-size: 18px;
+                padding: 15px 12px;
+            }
+            
+            .footer-content {
+                text-align: center;
+                padding: 0 20px;
+            }
+            
+            .footer-title {
+                font-size: 2.5rem;
+                margin-bottom: 25px;
+            }
+            
+            .footer-description {
+                font-size: 1rem;
+                margin-bottom: 35px;
+            }
+            
+            .footer-links {
+                gap: 18px;
+            }
+            
+            .footer-link {
+                justify-content: center;
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="../../index.html" class="logo">Sonny Steele</a>
+            <ul class="nav-links">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../../../index.html#work">Work</a></li>
+                <li><a href="../../index.html#contact">Contact</a></li>
+                <li><a href="javascript:void(0)" id="resumeLinkHeader">Resume</a></li>
+            </ul>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>BankAI Analytics Platform</h1>
+                <p>Comprehensive AI-powered analytics dashboard for banking chatbot performance, sentiment analysis, and intelligent data export. Transforming customer interaction data into actionable business insights through intuitive enterprise-grade interface design.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Design Challenge</h2>
+                    <p>Creating an enterprise AI analytics platform that transforms complex banking chatbot data into clear, actionable insights</p>
+                </div>
+                
+                <div class="process-grid">
+                    <div class="process-item">
+                        <div class="process-number">1</div>
+                        <h3>Data Complexity</h3>
+                        <p>Banking AI generates massive amounts of interaction data including sentiment, intent predictions, conversation flows, and performance metrics that needed clear visualization.</p>
+                    </div>
+                    
+                    <div class="process-item">
+                        <div class="process-number">2</div>
+                        <h3>Enterprise Users</h3>
+                        <p>Designing for multiple user types - data analysts, customer service managers, and executives - each requiring different levels of detail and functionality.</p>
+                    </div>
+                    
+                    <div class="process-item">
+                        <div class="process-number">3</div>
+                        <h3>Real-time Insights</h3>
+                        <p>Balancing comprehensive analytics with real-time performance monitoring to enable immediate action on customer service issues.</p>
+                    </div>
+                    
+                    <div class="process-item">
+                        <div class="process-number">4</div>
+                        <h3>Export & API Integration</h3>
+                        <p>Creating seamless data export workflows and API key management for enterprise integrations while maintaining security standards.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Interactive Dashboard Suite</h2>
+                    <p>Click to explore the complete analytics dashboard system with detailed performance metrics and intelligent insights</p>
+                </div>
+                
+                <div class="dashboard-showcase">
+                    <div class="dashboard-tile" onclick="openCarousel()">
+                        <div class="dashboard-image">
+                            <img src="../../../Case Studies/BankAI Analytics/images/AIChatbotDashboard.png" alt="BankAI Analytics Dashboard Suite" loading="eager" width="1200" height="500">
+                        </div>
+                        <div class="dashboard-content">
+                            <h3>Complete Analytics Dashboard Suite</h3>
+                            <p>Comprehensive view of all platform capabilities including sentiment analysis, performance tracking, intent prediction accuracy, data export functionality, and detailed reporting systems. Navigate through 7 detailed dashboard screens showcasing the full scope of AI analytics capabilities.</p>
+                            <div class="dashboard-tags">
+                                <span class="tag">Sentiment Analysis</span>
+                                <span class="tag">Intent Prediction</span>
+                                <span class="tag">Performance Metrics</span>
+                                <span class="tag">Data Export</span>
+                                <span class="tag">Real-time Analytics</span>
+                                <span class="tag">API Management</span>
+                                <span class="tag">Enterprise Reporting</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Key Features</h2>
+                    <p>Enterprise-grade analytics capabilities designed for banking AI optimization</p>
+                </div>
+                
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                            </svg>
+                        </div>
+                        <h4>Real-time Sentiment Analysis</h4>
+                        <p>Live monitoring of customer sentiment across all interactions with positive, neutral, and negative classification and trending analysis.</p>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M9 19c-5 0-9-4-9-9s4-9 9-9 9 4 9 9-4 9-9 9"/>
+                                <path d="M9 9a3 3 0 1 1 6 0 3 3 0 0 1-6 0"/>
+                            </svg>
+                        </div>
+                        <h4>Intent Prediction Accuracy</h4>
+                        <p>Advanced analytics on chatbot intent recognition with confidence scores, misclassification tracking, and optimization recommendations.</p>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                                <line x1="16" y1="2" x2="16" y2="6"/>
+                                <line x1="8" y1="2" x2="8" y2="6"/>
+                                <line x1="3" y1="10" x2="21" y2="10"/>
+                            </svg>
+                        </div>
+                        <h4>Performance Dashboards</h4>
+                        <p>Comprehensive performance tracking with user engagement metrics, response times, task completion rates, and conversation length analysis.</p>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                <polyline points="7,10 12,15 17,10"/>
+                                <line x1="12" y1="15" x2="12" y2="3"/>
+                            </svg>
+                        </div>
+                        <h4>Flexible Data Export</h4>
+                        <p>Multi-format data export (CSV, PDF, JSON) with customizable date ranges, metric selection, and automated delivery options for enterprise integration.</p>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                            </svg>
+                        </div>
+                        <h4>Input Method Analysis</h4>
+                        <p>Detailed breakdown of user interaction patterns including manual text, auto-complete usage, and keyword selection behaviors with optimization insights.</p>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                <polyline points="14,2 14,8 20,8"/>
+                                <line x1="16" y1="13" x2="8" y2="13"/>
+                                <line x1="16" y1="17" x2="8" y2="17"/>
+                                <polyline points="10,9 9,9 8,9"/>
+                            </svg>
+                        </div>
+                        <h4>Executive Reporting</h4>
+                        <p>Automated detailed reports with executive summaries, ROI projections, improvement recommendations, and implementation timelines for strategic decision-making.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Image Modal with Carousel -->
+    <div class="modal" id="imageModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeCarousel()">&times;</button>
+            <button class="carousel-nav carousel-prev" onclick="previousImage()">&#10094;</button>
+            <button class="carousel-nav carousel-next" onclick="nextImage()">&#10095;</button>
+            <img class="modal-image" id="modalImage" src="" alt="">
+            <div class="carousel-dots" id="carouselDots"></div>
+            <div class="carousel-counter" id="carouselCounter">1 / 7</div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <h2 class="footer-title">Get In Touch.</h2>
+                <p class="footer-description">I'm currently available for freelance work and exciting new opportunities. If you have a project in mind or just want to say hello, feel free to reach out.</p>
+                
+                <div class="footer-links">
+                    <a href="mailto:ssteele23@icloud.com" class="footer-link">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="currentColor" stroke-width="2"/>
+                            <polyline points="22,6 12,13 2,6" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                        ssteele23@icloud.com
+                    </a>
+                    
+                    <a href="https://www.linkedin.com/in/sonnysteele/" target="_blank" rel="noopener" class="footer-link">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16 8C17.5913 8 19.1174 8.63214 20.2426 9.75736C21.3679 10.8826 22 12.4087 22 14V21H18V14C18 13.4696 17.7893 12.9609 17.4142 12.5858C17.0391 12.2107 16.5304 12 16 12C15.4696 12 14.9609 12.2107 14.5858 12.5858C14.2107 12.9609 14 13.4696 14 14V21H10V14C10 12.4087 10.6321 10.8826 11.7574 9.75736C12.8826 8.63214 14.4087 8 16 8V8Z" stroke="currentColor" stroke-width="2"/>
+                            <rect x="2" y="9" width="4" height="12" stroke="currentColor" stroke-width="2"/>
+                            <circle cx="4" cy="4" r="2" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                        LinkedIn Profile
+                    </a>
+                    
+                    <a href="tel:+14135706737" class="footer-link">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M22 16.92V19.92C22 20.5 21.59 21 21.09 21C10.03 21 1 11.97 1 0.91C1 0.41 1.41 0 1.91 0H4.91C5.51 0 6.01 0.41 6.01 0.91C6.01 2.66 6.27 4.37 6.76 5.99C6.89 6.38 6.78 6.81 6.49 7.1L4.74 8.85C6.42 12.05 9.05 14.68 12.25 16.36L13.99 14.61C14.28 14.32 14.71 14.21 15.1 14.34C16.72 14.83 18.43 15.09 20.18 15.09C20.68 15.09 21.09 15.5 21.09 16.1V19.1C21.09 19.5 20.68 19.91 20.18 19.91Z" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                        +1 (413) 570-6737
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu functionality
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        if (mobileMenuToggle && navLinks) {
+            mobileMenuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                mobileMenuToggle.classList.toggle('active');
+            });
+
+            document.addEventListener('click', (e) => {
+                if (!navLinks.contains(e.target) && !mobileMenuToggle.contains(e.target)) {
+                    navLinks.classList.remove('active');
+                    mobileMenuToggle.classList.remove('active');
+                }
+            });
+
+            const mobileNavLinks = navLinks.querySelectorAll('a');
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                    mobileMenuToggle.classList.remove('active');
+                });
+            });
+        }
+
+        // Resume link functionality
+        const resumeLinkHeader = document.getElementById('resumeLinkHeader');
+        if (resumeLinkHeader) {
+            resumeLinkHeader.addEventListener('click', () => {
+                window.open('../../../index.html', '_blank');
+            });
+        }
+
+        // Carousel functionality
+        const images = [
+            {
+                src: '../../../Case Studies/BankAI Analytics/images/AIChatbotDashboard.png',
+                alt: 'AI Chatbot Dashboard - Sentiment Analysis Overview'
+            },
+            {
+                src: '../../../Case Studies/BankAI Analytics/images/AIPerformanceDashboard.png',
+                alt: 'AI Performance Dashboard - Metrics and Issues'
+            },
+            {
+                src: '../../../Case Studies/BankAI Analytics/images/DetailedReport.png',
+                alt: 'Detailed Analytics Report - Executive Summary'
+            },
+            {
+                src: '../../../Case Studies/BankAI Analytics/images/ExportData.png',
+                alt: 'Data Export Interface - Multiple Format Options'
+            },
+            {
+                src: '../../../Case Studies/BankAI Analytics/images/InputMethodsDetails.png',
+                alt: 'Input Methods Analysis - User Interaction Patterns'
+            },
+            {
+                src: '../../../Case Studies/BankAI Analytics/images/IntentDetails.png',
+                alt: 'Intent Prediction Analysis - Accuracy Metrics'
+            },
+            {
+                src: '../../../Case Studies/BankAI Analytics/images/InteractionDetails.png',
+                alt: 'Interaction Details - Customer Sentiment Tracking'
+            }
+        ];
+
+        let currentImageIndex = 0;
+        const modal = document.getElementById('imageModal');
+        const modalImage = document.getElementById('modalImage');
+        const carouselDots = document.getElementById('carouselDots');
+        const carouselCounter = document.getElementById('carouselCounter');
+
+        function createDots() {
+            carouselDots.innerHTML = '';
+            images.forEach((_, index) => {
+                const dot = document.createElement('button');
+                dot.className = 'carousel-dot';
+                if (index === 0) dot.classList.add('active');
+                dot.onclick = () => goToImage(index);
+                carouselDots.appendChild(dot);
+            });
+        }
+
+        function updateCarousel() {
+            const image = images[currentImageIndex];
+            modalImage.src = image.src;
+            modalImage.alt = image.alt;
+            
+            // Update dots
+            const dots = carouselDots.querySelectorAll('.carousel-dot');
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentImageIndex);
+            });
+            
+            // Update counter
+            carouselCounter.textContent = `${currentImageIndex + 1} / ${images.length}`;
+        }
+
+        function openCarousel() {
+            currentImageIndex = 0;
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            createDots();
+            updateCarousel();
+        }
+
+        function closeCarousel() {
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function nextImage() {
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+            updateCarousel();
+        }
+
+        function previousImage() {
+            currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+            updateCarousel();
+        }
+
+        function goToImage(index) {
+            currentImageIndex = index;
+            updateCarousel();
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (modal.classList.contains('active')) {
+                if (e.key === 'Escape') {
+                    closeCarousel();
+                } else if (e.key === 'ArrowLeft') {
+                    previousImage();
+                } else if (e.key === 'ArrowRight') {
+                    nextImage();
+                }
+            }
+        });
+
+        // Close modal when clicking outside the image
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeCarousel();
+            }
+        });
+    </script>
+</body>
+</html>
