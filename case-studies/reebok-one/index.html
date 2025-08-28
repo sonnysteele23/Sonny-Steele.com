@@ -3,50 +3,494 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reebok One Fitness App - UX Case Study | Sonny Steele</title>
-    <meta name="description" content="UX case study: Designing Reebok One fitness tracking app with workout programs, progress tracking, and community features for enhanced fitness experience.">
+    <title>Reebok ONE Fitness App - UX Case Study | Sonny Steele</title>
+    <meta name="description" content="UX case study: Designing comprehensive fitness tracking app for Reebok ONE with trainer profiles, sensor integration, workout analytics, and personalized fitness coaching.">
     <meta name="author" content="Sonny Steele">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://sonny-steele.com/portfolio-dark-theme/case-studies/reebok-one/">
+    <link rel="canonical" href="https://sonny-steele.com/case-studies/reebok-one/">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://sonny-steele.com/case-studies/reebok-one/">
+    <meta property="og:title" content="Reebok ONE Fitness App - UX Case Study | Sonny Steele">
+    <meta property="og:description" content="UX case study: Designing comprehensive fitness tracking app for Reebok ONE with trainer profiles, sensor integration, and personalized fitness coaching.">
+    <meta property="og:image" content="https://sonny-steele.com/Backup/Case%20Studies/ReebokOneApp/images/Sonny%20Steele%20-%20Examples.033.jpeg">
+    <meta property="og:site_name" content="Sonny Steele - AI UX Designer">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://sonny-steele.com/case-studies/reebok-one/">
+    <meta property="twitter:title" content="Reebok ONE Fitness App - UX Case Study">
+    <meta property="twitter:description" content="UX case study: Designing comprehensive fitness tracking app for Reebok ONE with trainer profiles, sensor integration, and personalized fitness coaching.">
+    <meta property="twitter:image" content="https://sonny-steele.com/Backup/Case%20Studies/ReebokOneApp/images/Sonny%20Steele%20-%20Examples.033.jpeg">
+    
+    <!-- Schema.org markup for case study -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CreativeWork",
+      "name": "Reebok ONE Fitness App - UX Case Study",
+      "description": "UX case study: Designing comprehensive fitness tracking app for Reebok ONE with trainer profiles, sensor integration, workout analytics, and personalized fitness coaching.",
+      "url": "https://sonny-steele.com/case-studies/reebok-one/",
+      "image": "https://sonny-steele.com/Backup/Case%20Studies/ReebokOneApp/images/Sonny%20Steele%20-%20Examples.033.jpeg",
+      "author": {
+        "@type": "Person",
+        "name": "Sonny Steele",
+        "jobTitle": "AI UX Designer & Design Leader",
+        "url": "https://sonny-steele.com"
+      },
+      "datePublished": "2018-01-01",
+      "keywords": "Reebok ONE, Fitness App, Wearable Technology, Personal Training, Sensor Integration, Workout Tracking, Mobile Fitness, Health Analytics",
+      "genre": "UX Case Study",
+      "about": {
+        "@type": "MobileApplication",
+        "name": "Reebok ONE Fitness App",
+        "applicationCategory": "Health & Fitness",
+        "description": "Comprehensive fitness tracking application with personal trainer integration and wearable sensor connectivity"
+      }
+    }
+    </script>
+    
+    <meta name="keywords" content="Reebok ONE, fitness app UX, wearable technology, personal training, sensor integration, workout tracking, mobile fitness, health analytics, Sonny Steele">
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; line-height: 1.6; color: #ffffff; background: #0a0a0a; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        
-        header { padding: 20px 0; border-bottom: 1px solid #333333; position: sticky; top: 0; background: rgba(10, 10, 10, 0.95); backdrop-filter: blur(10px); z-index: 100; }
-        nav { display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 24px; font-weight: 700; color: #ffffff; text-decoration: none; }
-        .back-link { display: flex; align-items: center; gap: 8px; color: #a0a0a0; text-decoration: none; font-weight: 500; transition: all 0.3s ease; padding: 8px 16px; border-radius: 8px; }
-        .back-link:hover { color: #ffffff; background: rgba(255, 255, 255, 0.05); }
-        
-        .hero { padding: 80px 0; background: linear-gradient(135deg, #ff6b35 0%, #f7931e 50%, #ff6b35 100%); color: white; text-align: center; }
-        .hero h1 { font-size: 3rem; font-weight: 800; margin-bottom: 20px; }
-        .hero p { font-size: 1.3rem; opacity: 0.9; max-width: 800px; margin: 0 auto; }
-        
-        .section { padding: 80px 0; }
-        .section:nth-child(even) { background: #111111; }
-        .section-title { text-align: center; margin-bottom: 60px; }
-        .section-title h2 { font-size: 2.5rem; font-weight: 800; color: #ffffff; margin-bottom: 20px; }
-        .section-title p { font-size: 1.2rem; color: #a0a0a0; max-width: 600px; margin: 0 auto; }
-        
-        .process-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; margin-top: 60px; }
-        .process-item { text-align: center; padding: 40px 20px; background: #1a1a1a; border-radius: 12px; box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3); border: 1px solid #333333; transition: all 0.3s ease; }
-        .process-item:hover { border-color: #ff6b35; box-shadow: 0 8px 32px rgba(255, 107, 53, 0.1); }
-        
-        .process-number { width: 60px; height: 60px; background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700; color: white; margin: 0 auto 20px; }
-        .process-item h3 { font-size: 1.3rem; font-weight: 700; color: #ffffff; margin-bottom: 15px; }
-        .process-item p { color: #a0a0a0; line-height: 1.6; }
-        
-        footer { padding: 60px 0; background: #ff6b35; color: white; text-align: center; }
-        footer h3 { font-size: 2rem; margin-bottom: 20px; }
-        footer p { color: rgba(255, 255, 255, 0.8); margin-bottom: 30px; }
-        footer a { color: white; text-decoration: none; font-weight: 600; transition: opacity 0.3s ease; }
-        footer a:hover { opacity: 0.8; }
-        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            line-height: 1.6;
+            color: #ffffff;
+            background: #0a0a0a;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            padding: 20px 0;
+            border-bottom: 1px solid #333333;
+            position: sticky;
+            top: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .back-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #a0a0a0;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 8px 16px;
+            border-radius: 8px;
+        }
+
+        .back-link:hover {
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .back-link svg {
+            transition: transform 0.3s ease;
+        }
+
+        .back-link:hover svg {
+            transform: translateX(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 50%, #ff6b35 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Content Sections */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section:nth-child(even) {
+            background: #111111;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 20px;
+        }
+
+        .section-title p {
+            font-size: 1.2rem;
+            color: #a0a0a0;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .section-content {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            color: #a0a0a0;
+            line-height: 1.8;
+            text-align: center;
+        }
+
+        .section-content p {
+            margin-bottom: 20px;
+        }
+
+        .section-content strong {
+            color: #ffffff;
+        }
+
+        /* Dashboard Showcase */
+        .dashboard-showcase {
+            margin: 60px 0;
+        }
+
+        .dashboard-tile {
+            background: #1a1a1a;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid #333333;
+        }
+
+        .dashboard-tile:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 48px rgba(255, 107, 53, 0.2);
+            border-color: #ff6b35;
+        }
+
+        .dashboard-image {
+            width: 100%;
+            height: 500px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .dashboard-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+            transition: transform 0.3s ease;
+        }
+
+        .dashboard-tile:hover .dashboard-image img {
+            transform: scale(1.02);
+        }
+
+        .dashboard-content {
+            padding: 40px;
+        }
+
+        .dashboard-content h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 15px;
+        }
+
+        .dashboard-content p {
+            color: #a0a0a0;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .dashboard-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .tag {
+            background: rgba(255, 107, 53, 0.1);
+            color: #ff6b35;
+            padding: 6px 12px;
+            border-radius: 16px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            border: 1px solid rgba(255, 107, 53, 0.2);
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .feature-item {
+            background: #1a1a1a;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+            border: 1px solid #333333;
+            transition: all 0.3s ease;
+        }
+
+        .feature-item:hover {
+            border-color: #ff6b35;
+            box-shadow: 0 8px 32px rgba(255, 107, 53, 0.1);
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .feature-icon svg {
+            width: 24px;
+            height: 24px;
+            color: white;
+        }
+
+        .feature-item h4 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 15px;
+        }
+
+        .feature-item p {
+            color: #a0a0a0;
+            line-height: 1.6;
+        }
+
+        /* Modal and Carousel */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal-content {
+            position: relative;
+            max-width: 90vw;
+            max-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-image {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            border-radius: 8px;
+            object-fit: contain;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: -50px;
+            right: 0;
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+            cursor: pointer;
+            background: rgba(0, 0, 0, 0.7);
+            border: none;
+            padding: 10px 15px;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-close:hover {
+            background: rgba(0, 0, 0, 0.9);
+        }
+
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            border: none;
+            padding: 15px 20px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-nav:hover {
+            background: rgba(0, 0, 0, 0.9);
+        }
+
+        .carousel-prev {
+            left: -80px;
+        }
+
+        .carousel-next {
+            right: -80px;
+        }
+
+        .carousel-dots {
+            position: absolute;
+            bottom: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-dot.active {
+            background: #ff6b35;
+        }
+
+        .carousel-counter {
+            position: absolute;
+            bottom: -80px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 0.9rem;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 8px 16px;
+            border-radius: 16px;
+        }
+
+        /* Footer */
+        footer {
+            padding: 60px 0;
+            background: #ff6b35;
+            color: white;
+            text-align: center;
+        }
+
+        footer h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        footer p {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 30px;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: opacity 0.3s ease;
+        }
+
+        footer a:hover {
+            opacity: 0.8;
+        }
+
+        /* Responsive */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2rem; }
-            .hero p { font-size: 1.1rem; }
-            .process-grid { grid-template-columns: 1fr; }
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .dashboard-image {
+                height: 300px;
+            }
+
+            .dashboard-content {
+                padding: 30px;
+            }
+
+            .carousel-prev {
+                left: -50px;
+            }
+
+            .carousel-next {
+                right: -50px;
+            }
         }
     </style>
 </head>
@@ -66,41 +510,140 @@
     <main>
         <section class="hero">
             <div class="container">
-                <h1>Reebok One Fitness App</h1>
-                <p>Designing comprehensive fitness tracking application with workout programs, progress monitoring, and community features that motivate users to achieve their fitness goals through engaging digital experiences.</p>
+                <h1>Reebok ONE Fitness App</h1>
+                <p>Revolutionary fitness tracking application that seamlessly integrates wearable sensor technology with personalized coaching. Featuring trainer profiles, advanced biometric monitoring, and intelligent workout analytics to deliver a comprehensive fitness experience.</p>
             </div>
         </section>
 
         <section class="section">
             <div class="container">
                 <div class="section-title">
-                    <h2>Design Focus</h2>
-                    <p>Creating motivational fitness experiences through intuitive design and social engagement</p>
+                    <h2>Design Challenge</h2>
+                    <p>Creating the ultimate connected fitness ecosystem</p>
                 </div>
                 
-                <div class="process-grid">
-                    <div class="process-item">
-                        <div class="process-number">1</div>
-                        <h3>Workout Programs</h3>
-                        <p>Designed structured workout programs with clear progressions, video guidance, and adaptive difficulty levels to support users at all fitness levels.</p>
+                <div class="section-content">
+                    <p><strong>Challenge:</strong> Design a comprehensive fitness application that seamlessly integrates Reebok's wearable sensor technology with personalized training programs, creating a connected fitness ecosystem that bridges hardware and software.</p>
+                    
+                    <p><strong>Solution:</strong> Developed an innovative mobile fitness platform featuring certified trainer profiles, real-time sensor data integration, advanced workout analytics, and social community features. The app transforms individual fitness tracking into a comprehensive coaching experience with professional guidance and peer motivation.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Fitness App Interface</h2>
+                    <p>Click to explore the complete fitness tracking system with trainer integration and advanced analytics</p>
+                </div>
+                
+                <div class="dashboard-showcase">
+                    <div class="dashboard-tile" onclick="openCarousel()">
+                        <div class="dashboard-image">
+                            <img src="../../Backup/Case Studies/ReebokOneApp/images/Sonny Steele - Examples.033.jpeg" alt="Reebok ONE Fitness App Interface" loading="eager" width="1200" height="500">
+                        </div>
+                        <div class="dashboard-content">
+                            <h3>Complete Fitness Tracking Platform</h3>
+                            <p>Comprehensive mobile fitness application featuring trainer profiles with detailed qualifications and reviews, real-time sensor data integration displaying heart rate and performance metrics, and intelligent workout tracking with progress analytics. Navigate through 5 detailed interface screens showcasing the complete fitness ecosystem from trainer selection to workout analytics.</p>
+                            <div class="dashboard-tags">
+                                <span class="tag">Wearable Technology</span>
+                                <span class="tag">Personal Training</span>
+                                <span class="tag">Sensor Integration</span>
+                                <span class="tag">Fitness Analytics</span>
+                                <span class="tag">Biometric Tracking</span>
+                                <span class="tag">Mobile Fitness</span>
+                                <span class="tag">Health Monitoring</span>
+                                <span class="tag">Workout Optimization</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Key Features</h2>
+                    <p>Advanced fitness technology designed for the modern athlete</p>
+                </div>
+                
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                            </svg>
+                        </div>
+                        <h4>Real-time Sensor Data</h4>
+                        <p>Live biometric monitoring with Reebok wearable sensors tracking heart rate, movement patterns, and performance metrics with instant feedback and analysis.</p>
                     </div>
                     
-                    <div class="process-item">
-                        <div class="process-number">2</div>
-                        <h3>Progress Tracking</h3>
-                        <p>Comprehensive tracking system for workouts, achievements, and personal records with visual feedback that motivates continued engagement.</p>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                <circle cx="9" cy="7" r="4"/>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                            </svg>
+                        </div>
+                        <h4>Certified Trainer Profiles</h4>
+                        <p>Comprehensive trainer directory with detailed qualifications, specializations, user ratings, and availability for personalized fitness coaching and guidance.</p>
                     </div>
                     
-                    <div class="process-item">
-                        <div class="process-number">3</div>
-                        <h3>Community Features</h3>
-                        <p>Social elements including challenges, leaderboards, and sharing capabilities that create accountability and motivation through community support.</p>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M3 3v5h5"/>
+                                <path d="M3 8a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 4"/>
+                                <path d="M5 9v5h5"/>
+                                <path d="M9 14a5 5 0 0 0 7-7"/>
+                            </svg>
+                        </div>
+                        <h4>Workout Analytics</h4>
+                        <p>Advanced performance analysis with progress tracking, goal achievement metrics, and personalized recommendations based on historical workout data and sensor insights.</p>
                     </div>
                     
-                    <div class="process-item">
-                        <div class="process-number">4</div>
-                        <h3>Brand Integration</h3>
-                        <p>Seamlessly integrated Reebok brand elements while maintaining focus on user experience and functional fitness tracking capabilities.</p>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                            </svg>
+                        </div>
+                        <h4>Social Integration</h4>
+                        <p>Community features including trainer connections, workout sharing, progress celebrations, and social challenges to maintain motivation and accountability.</p>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2v6.5"/>
+                                <path d="M12 15.5V22"/>
+                                <path d="M4.93 4.93l4.24 4.24"/>
+                                <path d="M14.83 14.83l4.24 4.24"/>
+                                <path d="M2 12h6.5"/>
+                                <path d="M15.5 12H22"/>
+                                <path d="M4.93 19.07l4.24-4.24"/>
+                                <path d="M14.83 9.17l4.24-4.24"/>
+                            </svg>
+                        </div>
+                        <h4>Smart Notifications</h4>
+                        <p>Intelligent alerts and reminders for workout schedules, training sessions, achievement milestones, and health monitoring based on user preferences and goals.</p>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                                <line x1="8" y1="9" x2="16" y2="9"/>
+                                <line x1="8" y1="13" x2="14" y2="13"/>
+                            </svg>
+                        </div>
+                        <h4>Direct Trainer Communication</h4>
+                        <p>Integrated messaging system enabling direct communication with personal trainers for real-time coaching feedback, form corrections, and personalized workout adjustments.</p>
                     </div>
                 </div>
             </div>
@@ -114,5 +657,114 @@
             <a href="../../index.html#contact">Get in touch →</a>
         </div>
     </footer>
+
+    <!-- Image Modal with Carousel -->
+    <div class="modal" id="imageModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeCarousel()">&times;</button>
+            <button class="carousel-nav carousel-prev" onclick="previousImage()">&#10094;</button>
+            <button class="carousel-nav carousel-next" onclick="nextImage()">&#10095;</button>
+            <img class="modal-image" id="modalImage" src="" alt="">
+            <div class="carousel-dots" id="carouselDots"></div>
+            <div class="carousel-counter" id="carouselCounter">1 / 5</div>
+        </div>
+    </div>
+
+    <script>
+        // Carousel functionality
+        const images = [
+            {
+                src: '../../Backup/Case Studies/ReebokOneApp/images/Sonny Steele - Examples.033.jpeg',
+                alt: 'Reebok ONE Fitness App - Main Interface Overview'
+            },
+            {
+                src: '../../Backup/Case Studies/ReebokOneApp/images/Sonny Steele - Examples.034.jpeg',
+                alt: 'Trainer Profiles - Certified Professional Directory'
+            },
+            {
+                src: '../../Backup/Case Studies/ReebokOneApp/images/Sonny Steele - Examples.035.jpeg',
+                alt: 'Sensor Integration - Real-time Biometric Monitoring'
+            },
+            {
+                src: '../../Backup/Case Studies/ReebokOneApp/images/Sonny Steele - Examples.036.jpeg',
+                alt: 'Workout Analytics - Performance Tracking Dashboard'
+            },
+            {
+                src: '../../Backup/Case Studies/ReebokOneApp/images/Sonny Steele - Examples.037.jpeg',
+                alt: 'Social Features - Community and Communication Interface'
+            }
+        ];
+
+        let currentImageIndex = 0;
+        const modal = document.getElementById('imageModal');
+        const modalImage = document.getElementById('modalImage');
+        const carouselDots = document.getElementById('carouselDots');
+        const carouselCounter = document.getElementById('carouselCounter');
+
+        function openCarousel() {
+            modal.classList.add('active');
+            showImage(0);
+            generateDots();
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeCarousel() {
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function showImage(index) {
+            currentImageIndex = index;
+            modalImage.src = images[index].src;
+            modalImage.alt = images[index].alt;
+            updateDots();
+            updateCounter();
+        }
+
+        function nextImage() {
+            const nextIndex = (currentImageIndex + 1) % images.length;
+            showImage(nextIndex);
+        }
+
+        function previousImage() {
+            const prevIndex = currentImageIndex === 0 ? images.length - 1 : currentImageIndex - 1;
+            showImage(prevIndex);
+        }
+
+        function generateDots() {
+            carouselDots.innerHTML = '';
+            images.forEach((_, index) => {
+                const dot = document.createElement('div');
+                dot.className = 'carousel-dot';
+                dot.onclick = () => showImage(index);
+                carouselDots.appendChild(dot);
+            });
+        }
+
+        function updateDots() {
+            const dots = carouselDots.querySelectorAll('.carousel-dot');
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentImageIndex);
+            });
+        }
+
+        function updateCounter() {
+            carouselCounter.textContent = `${currentImageIndex + 1} / ${images.length}`;
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (!modal.classList.contains('active')) return;
+            
+            if (e.key === 'ArrowRight') nextImage();
+            if (e.key === 'ArrowLeft') previousImage();
+            if (e.key === 'Escape') closeCarousel();
+        });
+
+        // Close modal when clicking outside image
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeCarousel();
+        });
+    </script>
 </body>
 </html>

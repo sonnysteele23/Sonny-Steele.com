@@ -7,7 +7,7 @@
     <meta name="description" content="UX case study: Designing Yankee Candle e-commerce experience with product discovery, fragrance selection, and seasonal collections for enhanced shopping experience.">
     <meta name="author" content="Sonny Steele">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://sonny-steele.com/portfolio-dark-theme/case-studies/yankee-candle/">
+    <link rel="canonical" href="https://sonny-steele.com/case-studies/yankee-candle/">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; line-height: 1.6; color: #ffffff; background: #0a0a0a; }
@@ -29,13 +29,250 @@
         .section-title h2 { font-size: 2.5rem; font-weight: 800; color: #ffffff; margin-bottom: 20px; }
         .section-title p { font-size: 1.2rem; color: #a0a0a0; max-width: 600px; margin: 0 auto; }
         
-        .process-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; margin-top: 60px; }
-        .process-item { text-align: center; padding: 40px 20px; background: #1a1a1a; border-radius: 12px; box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3); border: 1px solid #333333; transition: all 0.3s ease; }
-        .process-item:hover { border-color: #ff6b35; box-shadow: 0 8px 32px rgba(255, 107, 53, 0.1); }
-        
-        .process-number { width: 60px; height: 60px; background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700; color: white; margin: 0 auto 20px; }
-        .process-item h3 { font-size: 1.3rem; font-weight: 700; color: #ffffff; margin-bottom: 15px; }
-        .process-item p { color: #a0a0a0; line-height: 1.6; }
+        /* Dashboard Showcase */
+        .dashboard-showcase {
+            margin: 60px 0;
+        }
+
+        .dashboard-tile {
+            background: #1a1a1a;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid #333333;
+        }
+
+        .dashboard-tile:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 48px rgba(255, 107, 53, 0.2);
+            border-color: #ff6b35;
+        }
+
+        .dashboard-image {
+            width: 100%;
+            height: 500px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .dashboard-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+            transition: transform 0.3s ease;
+        }
+
+        .dashboard-tile:hover .dashboard-image img {
+            transform: scale(1.02);
+        }
+
+        .dashboard-content {
+            padding: 40px;
+        }
+
+        .dashboard-content h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 15px;
+        }
+
+        .dashboard-content p {
+            color: #a0a0a0;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .dashboard-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .tag {
+            background: rgba(255, 107, 53, 0.1);
+            color: #ff6b35;
+            padding: 6px 12px;
+            border-radius: 16px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            border: 1px solid rgba(255, 107, 53, 0.2);
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .feature-item {
+            background: #1a1a1a;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+            border: 1px solid #333333;
+            transition: all 0.3s ease;
+        }
+
+        .feature-item:hover {
+            border-color: #ff6b35;
+            box-shadow: 0 8px 32px rgba(255, 107, 53, 0.1);
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .feature-icon svg {
+            width: 24px;
+            height: 24px;
+            color: white;
+        }
+
+        .feature-item h4 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 15px;
+        }
+
+        .feature-item p {
+            color: #a0a0a0;
+            line-height: 1.6;
+        }
+
+        /* Modal and Carousel */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal-content {
+            position: relative;
+            max-width: 90vw;
+            max-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-image {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            border-radius: 8px;
+            object-fit: contain;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: -50px;
+            right: 0;
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+            cursor: pointer;
+            background: rgba(0, 0, 0, 0.7);
+            border: none;
+            padding: 10px 15px;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-close:hover {
+            background: rgba(0, 0, 0, 0.9);
+        }
+
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            border: none;
+            padding: 15px 20px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-nav:hover {
+            background: rgba(0, 0, 0, 0.9);
+        }
+
+        .carousel-prev {
+            left: -80px;
+        }
+
+        .carousel-next {
+            right: -80px;
+        }
+
+        .carousel-dots {
+            position: absolute;
+            bottom: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-dot.active {
+            background: #ff6b35;
+        }
+
+        .carousel-counter {
+            position: absolute;
+            bottom: -80px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 0.9rem;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 8px 16px;
+            border-radius: 16px;
+        }
         
         footer { padding: 60px 0; background: #ff6b35; color: white; text-align: center; }
         footer h3 { font-size: 2rem; margin-bottom: 20px; }
@@ -46,7 +283,11 @@
         @media (max-width: 768px) {
             .hero h1 { font-size: 2rem; }
             .hero p { font-size: 1.1rem; }
-            .process-grid { grid-template-columns: 1fr; }
+            .features-grid { grid-template-columns: 1fr; }
+            .dashboard-image { height: 300px; }
+            .dashboard-content { padding: 30px; }
+            .carousel-prev { left: -50px; }
+            .carousel-next { right: -50px; }
         }
     </style>
 </head>
@@ -66,41 +307,132 @@
     <main>
         <section class="hero">
             <div class="container">
-                <h1>Yankee Candle E-commerce</h1>
-                <p>Designing enhanced e-commerce experience for Yankee Candle with intuitive product discovery, fragrance selection tools, seasonal collections, and personalized recommendations that capture the sensory essence of the brand digitally.</p>
+                <h1>Yankee Candle Fundraising App</h1>
+                <p>Comprehensive mobile fundraising platform designed for Yankee Candle's community fundraising programs. Features donation management, campaign tracking, reward systems, and social sharing capabilities to maximize fundraising effectiveness for schools, organizations, and charities.</p>
             </div>
         </section>
 
         <section class="section">
             <div class="container">
                 <div class="section-title">
-                    <h2>E-commerce Strategy</h2>
-                    <p>Creating sensory-rich digital shopping experiences that translate the Yankee Candle brand online</p>
+                    <h2>Fundraising Challenge</h2>
+                    <p>Creating the ultimate community fundraising platform</p>
                 </div>
                 
-                <div class="process-grid">
-                    <div class="process-item">
-                        <div class="process-number">1</div>
-                        <h3>Fragrance Discovery</h3>
-                        <p>Innovative fragrance selection tools with detailed scent profiles, fragrance families, and recommendations to help customers discover their perfect candle scents online.</p>
+                <div class="section-content">
+                    <p><strong>Challenge:</strong> Design a comprehensive mobile fundraising application that simplifies campaign management for organizations while maximizing donor engagement through gamification, social sharing, and reward systems.</p>
+                    
+                    <p><strong>Solution:</strong> Developed an innovative fundraising platform featuring intuitive campaign setup, real-time progress tracking, donor recognition systems, and social integration. The app transforms traditional fundraising into an engaging community experience with comprehensive analytics and automated reward distribution.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Fundraising App Interface</h2>
+                    <p>Click to explore the complete fundraising management system with campaign tracking and donor engagement tools</p>
+                </div>
+                
+                <div class="dashboard-showcase">
+                    <div class="dashboard-tile" onclick="openCarousel()">
+                        <div class="dashboard-image">
+                            <img src="../../Backup/Case Studies/YankeeCandleFundraisingApp/images/Sonny Steele - Examples.024.jpeg" alt="Yankee Candle Fundraising App Interface" loading="eager" width="1200" height="500">
+                        </div>
+                        <div class="dashboard-content">
+                            <h3>Complete Fundraising Management Platform</h3>
+                            <p>Comprehensive mobile fundraising application featuring campaign dashboard with real-time progress tracking, donor management interface, reward system configuration, and social sharing integration. Navigate through 4 detailed interface screens showcasing the complete fundraising ecosystem from campaign setup to goal achievement.</p>
+                            <div class="dashboard-tags">
+                                <span class="tag">Mobile Fundraising</span>
+                                <span class="tag">Campaign Management</span>
+                                <span class="tag">Donation Tracking</span>
+                                <span class="tag">Social Integration</span>
+                                <span class="tag">Reward Systems</span>
+                                <span class="tag">Community Engagement</span>
+                                <span class="tag">Analytics Dashboard</span>
+                                <span class="tag">Goal Tracking</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Key Features</h2>
+                    <p>Advanced fundraising technology designed for community organizations</p>
+                </div>
+                
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            </svg>
+                        </div>
+                        <h4>Campaign Management</h4>
+                        <p>Comprehensive campaign creation and management tools with goal setting, timeline configuration, and automated progress tracking for successful fundraising initiatives.</p>
                     </div>
                     
-                    <div class="process-item">
-                        <div class="process-number">2</div>
-                        <h3>Seasonal Collections</h3>
-                        <p>Dynamic seasonal presentation of collections with immersive visuals and storytelling that captures the mood and atmosphere of each season.</p>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                <circle cx="9" cy="7" r="4"/>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                            </svg>
+                        </div>
+                        <h4>Donor Management</h4>
+                        <p>Advanced donor tracking and engagement system with donation history, recognition levels, communication tools, and personalized thank-you messaging capabilities.</p>
                     </div>
                     
-                    <div class="process-item">
-                        <div class="process-number">3</div>
-                        <h3>Product Visualization</h3>
-                        <p>Enhanced product imagery and 360-degree views that showcase candle details, burn characteristics, and home integration possibilities.</p>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M7 7h.01"/>
+                                <path d="M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 0 1 0 2.828l-7 7a2 2 0 0 1-2.828 0l-7-7A1.994 1.994 0 0 1 3 12V7a4 4 0 0 1 4-4z"/>
+                            </svg>
+                        </div>
+                        <h4>Reward Systems</h4>
+                        <p>Gamified fundraising experience with achievement badges, milestone celebrations, leaderboards, and automated reward distribution to maintain engagement and motivation.</p>
                     </div>
                     
-                    <div class="process-item">
-                        <div class="process-number">4</div>
-                        <h3>Gift Personalization</h3>
-                        <p>Comprehensive gift customization options including personalized messages, gift sets, and seasonal packaging to enhance the gifting experience.</p>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                            </svg>
+                        </div>
+                        <h4>Real-time Analytics</h4>
+                        <p>Comprehensive fundraising analytics dashboard with donation tracking, campaign performance metrics, donor insights, and goal progression visualization tools.</p>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                            </svg>
+                        </div>
+                        <h4>Social Sharing</h4>
+                        <p>Integrated social media sharing tools with customizable campaign messages, progress updates, and viral sharing mechanics to maximize reach and donor acquisition.</p>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                <circle cx="9" cy="7" r="4"/>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                            </svg>
+                        </div>
+                        <h4>Team Collaboration</h4>
+                        <p>Multi-user collaboration platform with role-based access, team communication tools, task assignment, and coordinated campaign management for organizational efficiency.</p>
                     </div>
                 </div>
             </div>
@@ -114,5 +446,110 @@
             <a href="../../index.html#contact">Get in touch →</a>
         </div>
     </footer>
+
+    <!-- Image Modal with Carousel -->
+    <div class="modal" id="imageModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeCarousel()">&times;</button>
+            <button class="carousel-nav carousel-prev" onclick="previousImage()">&#10094;</button>
+            <button class="carousel-nav carousel-next" onclick="nextImage()">&#10095;</button>
+            <img class="modal-image" id="modalImage" src="" alt="">
+            <div class="carousel-dots" id="carouselDots"></div>
+            <div class="carousel-counter" id="carouselCounter">1 / 4</div>
+        </div>
+    </div>
+
+    <script>
+        // Carousel functionality
+        const images = [
+            {
+                src: '../../Backup/Case Studies/YankeeCandleFundraisingApp/images/Sonny Steele - Examples.024.jpeg',
+                alt: 'Yankee Candle Fundraising App - Main Dashboard Overview'
+            },
+            {
+                src: '../../Backup/Case Studies/YankeeCandleFundraisingApp/images/Sonny Steele - Examples.025.jpeg',
+                alt: 'Campaign Management Interface - Goal Setting and Tracking'
+            },
+            {
+                src: '../../Backup/Case Studies/YankeeCandleFundraisingApp/images/Sonny Steele - Examples.026.jpeg',
+                alt: 'Donor Management System - Engagement and Recognition'
+            },
+            {
+                src: '../../Backup/Case Studies/YankeeCandleFundraisingApp/images/Sonny Steele - Examples.027.jpeg',
+                alt: 'Analytics Dashboard - Performance Metrics and Insights'
+            }
+        ];
+
+        let currentImageIndex = 0;
+        const modal = document.getElementById('imageModal');
+        const modalImage = document.getElementById('modalImage');
+        const carouselDots = document.getElementById('carouselDots');
+        const carouselCounter = document.getElementById('carouselCounter');
+
+        function openCarousel() {
+            modal.classList.add('active');
+            showImage(0);
+            generateDots();
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeCarousel() {
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function showImage(index) {
+            currentImageIndex = index;
+            modalImage.src = images[index].src;
+            modalImage.alt = images[index].alt;
+            updateDots();
+            updateCounter();
+        }
+
+        function nextImage() {
+            const nextIndex = (currentImageIndex + 1) % images.length;
+            showImage(nextIndex);
+        }
+
+        function previousImage() {
+            const prevIndex = currentImageIndex === 0 ? images.length - 1 : currentImageIndex - 1;
+            showImage(prevIndex);
+        }
+
+        function generateDots() {
+            carouselDots.innerHTML = '';
+            images.forEach((_, index) => {
+                const dot = document.createElement('div');
+                dot.className = 'carousel-dot';
+                dot.onclick = () => showImage(index);
+                carouselDots.appendChild(dot);
+            });
+        }
+
+        function updateDots() {
+            const dots = carouselDots.querySelectorAll('.carousel-dot');
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentImageIndex);
+            });
+        }
+
+        function updateCounter() {
+            carouselCounter.textContent = `${currentImageIndex + 1} / ${images.length}`;
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (!modal.classList.contains('active')) return;
+            
+            if (e.key === 'ArrowRight') nextImage();
+            if (e.key === 'ArrowLeft') previousImage();
+            if (e.key === 'Escape') closeCarousel();
+        });
+
+        // Close modal when clicking outside image
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeCarousel();
+        });
+    </script>
 </body>
 </html>
