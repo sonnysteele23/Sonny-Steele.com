@@ -88,6 +88,6 @@ portfolio-dark-theme/
 
 ## Contact
 For questions about this portfolio template or to hire Sonny Steele for your next project:
-- Email: ssteele23@icloud.com
+- Email: sjsteele23@gmail.com
 - LinkedIn: https://www.linkedin.com/in/sonnysteele/
 - Phone: +1-413-570-6737
