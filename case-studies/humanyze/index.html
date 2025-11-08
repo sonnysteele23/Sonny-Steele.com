@@ -153,13 +153,6 @@
             border-radius: 12px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
             margin-top: 40px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .overview-image:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 24px 70px rgba(255, 107, 53, 0.2);
         }
 
         /* Content Sections */
@@ -205,7 +198,6 @@
             box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
             transition: all 0.3s ease;
             border: 1px solid #333333;
-            cursor: pointer;
         }
 
         .feature-item:hover {
@@ -226,12 +218,12 @@
             height: 100%;
             object-fit: cover;
             object-position: top;
+            cursor: pointer;
             transition: opacity 0.3s ease;
-            pointer-events: none;
         }
 
-        .feature-item:hover .feature-image img {
-            opacity: 0.9;
+        .feature-image img:hover {
+            opacity: 0.8;
         }
 
         .feature-content {
@@ -442,9 +434,9 @@
                 </div>
 
                 <div style="max-width: 1000px; margin: 0 auto;">
-                    <div class="feature-item" style="max-width: 100%;" onclick="openModal('images/Frame 1106.png')">
+                    <div class="feature-item" style="max-width: 100%;">
                         <div class="feature-image" style="height: 500px;">
-                            <img src="images/Frame 1106.png" alt="Social Media Analytics Dashboard" loading="lazy" width="1000" height="500">
+                            <img src="images/Frame 1106.png" alt="Social Media Analytics Dashboard" onclick="openModal(this.src)" loading="lazy" width="1000" height="500">
                         </div>
                         <div class="feature-content">
                             <h3>Social Media Analytics Dashboard</h3>
@@ -452,9 +444,9 @@
                         </div>
                     </div>
 
-                    <div class="feature-item" style="max-width: 100%; margin-top: 60px;" onclick="openModal('images/CompetitiveAnalytics.png')">
+                    <div class="feature-item" style="max-width: 100%; margin-top: 60px;">
                         <div class="feature-image" style="height: 500px;">
-                            <img src="images/CompetitiveAnalytics.png" alt="Competitive Analytics" loading="lazy" width="1000" height="500">
+                            <img src="images/CompetitiveAnalytics.png" alt="Competitive Analytics" onclick="openModal(this.src)" loading="lazy" width="1000" height="500">
                         </div>
                         <div class="feature-content">
                             <h3>Competitive Analytics</h3>
@@ -473,9 +465,9 @@
                 </div>
 
                 <div style="max-width: 1000px; margin: 0 auto;">
-                    <div class="feature-item" style="max-width: 100%;" onclick="openModal('images/Components.png')">
+                    <div class="feature-item" style="max-width: 100%;">
                         <div class="feature-image" style="height: 500px;">
-                            <img src="images/Components.png" alt="Component Library" loading="lazy" width="1000" height="500">
+                            <img src="images/Components.png" alt="Component Library" onclick="openModal(this.src)" loading="lazy" width="1000" height="500">
                         </div>
                         <div class="feature-content">
                             <h3>Component Library</h3>
