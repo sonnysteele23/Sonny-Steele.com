@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Humanyze Pulse - AI Workforce Intelligence Platform | Sonny Steele</title>
+    <meta name="description" content="UX case study: Designing Humanyze Pulse AI-powered workforce intelligence platform. Real-time social media analytics, sentiment tracking, and competitive insights for data-driven decisions.">
+    <meta name="author" content="Sonny Steele">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://sonny-steele.com/case-studies/humanyze/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://sonny-steele.com/case-studies/humanyze/">
+    <meta property="og:title" content="Humanyze Pulse - AI Workforce Intelligence Platform | Sonny Steele">
+    <meta property="og:description" content="UX case study: Designing Humanyze Pulse AI-powered workforce intelligence platform with real-time social media analytics and competitive insights.">
+    <meta property="og:image" content="https://sonny-steele.com/case-studies/humanyze/images/Frame%201106.png">
+    <meta property="og:site_name" content="Sonny Steele - AI UX Designer">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://sonny-steele.com/case-studies/humanyze/">
+    <meta property="twitter:title" content="Humanyze Pulse - AI Workforce Intelligence Platform">
+    <meta property="twitter:description" content="UX case study: Designing AI-powered workforce intelligence platform with real-time social media analytics.">
+    <meta property="twitter:image" content="https://sonny-steele.com/case-studies/humanyze/images/Frame%201106.png">
+
+    <!-- Schema.org markup for case study -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CreativeWork",
+      "name": "Humanyze Pulse - AI Workforce Intelligence Platform",
+      "description": "UX case study: Designing Humanyze Pulse AI-powered workforce intelligence platform with real-time social media analytics, sentiment tracking, and competitive insights.",
+      "url": "https://sonny-steele.com/case-studies/humanyze/",
+      "image": "https://sonny-steele.com/case-studies/humanyze/images/Frame%201106.png",
+      "author": {
+        "@type": "Person",
+        "name": "Sonny Steele",
+        "jobTitle": "AI UX Designer & Design Leader",
+        "url": "https://sonny-steele.com/index.html"
+      },
+      "datePublished": "2024-01-01",
+      "keywords": "Workforce Intelligence, AI Analytics, Social Media Analytics, Sentiment Analysis, Market Intelligence, Data Visualization, Enterprise Platform",
+      "genre": "UX Case Study",
+      "about": {
+        "@type": "SoftwareApplication",
+        "name": "Humanyze Pulse",
+        "applicationCategory": "Business Software",
+        "description": "AI-powered market and workforce intelligence platform for smarter, faster decisions"
+      }
+    }
+    </script>
+
+    <meta name="keywords" content="Humanyze, Pulse, workforce intelligence, AI analytics, social media analytics, sentiment analysis, market intelligence, UX design, Sonny Steele">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            line-height: 1.6;
+            color: #ffffff;
+            background: #0a0a0a;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            padding: 20px 0;
+            border-bottom: 1px solid #333333;
+            position: sticky;
+            top: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .back-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #a0a0a0;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 8px 16px;
+            border-radius: 8px;
+        }
+
+        .back-link:hover {
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .back-link svg {
+            transition: transform 0.3s ease;
+        }
+
+        .back-link:hover svg {
+            transform: translateX(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 50%, #ff6b35 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Platform Overview Section */
+        .platform-overview {
+            padding: 80px 0;
+            background: #111111;
+        }
+
+        .overview-image {
+            max-width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            margin-top: 40px;
+        }
+
+        /* Content Sections */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section:nth-child(even) {
+            background: #111111;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 20px;
+        }
+
+        .section-title p {
+            font-size: 1.2rem;
+            color: #a0a0a0;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Features Grid - Not used but keeping for consistency */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .feature-item {
+            background: #1a1a1a;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            border: 1px solid #333333;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(255, 107, 53, 0.2);
+            border-color: #ff6b35;
+        }
+
+        .feature-image {
+            width: 100%;
+            height: 300px;
+            background: #111111;
+            overflow: hidden;
+        }
+
+        .feature-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+        }
+
+        .feature-image img:hover {
+            opacity: 0.8;
+        }
+
+        .feature-content {
+            padding: 30px;
+        }
+
+        .feature-content h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 15px;
+        }
+
+        .feature-content p {
+            color: #a0a0a0;
+            line-height: 1.6;
+        }
+
+        /* Key Metrics */
+        .metrics-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .metric-card {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+            border-radius: 12px;
+            padding: 40px;
+            text-align: center;
+            border: 1px solid #333333;
+            transition: all 0.3s ease;
+        }
+
+        .metric-card:hover {
+            border-color: #ff6b35;
+            box-shadow: 0 8px 32px rgba(255, 107, 53, 0.2);
+        }
+
+        .metric-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #ff6b35;
+            margin-bottom: 10px;
+        }
+
+        .metric-label {
+            font-size: 1.1rem;
+            color: #a0a0a0;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            padding: 60px 20px;
+            overflow-y: auto;
+        }
+
+        .modal-content {
+            max-width: min(95vw, 1440px);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: auto;
+            min-height: calc(100vh - 120px);
+        }
+
+        .modal-image {
+            max-width: 100%;
+            width: auto;
+            height: auto;
+            border-radius: 8px;
+            object-fit: contain;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
+        }
+
+        .modal-close {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+            cursor: pointer;
+            background: rgba(0, 0, 0, 0.5);
+            border: none;
+            padding: 10px;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1001;
+        }
+
+        .modal-close:hover {
+            opacity: 0.7;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .feature-image {
+                height: 350px !important;
+            }
+
+            .metrics-container {
+                grid-template-columns: 1fr;
+            }
+
+            .metric-number {
+                font-size: 2.5rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .section-title p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="../../index.html" class="logo">Sonny Steele</a>
+            <a href="../../index.html" class="back-link">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Back to Portfolio
+            </a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Humanyze Pulse</h1>
+                <p>AI-Powered Market & Workforce Intelligence for Smarter, Faster Decisions. Comprehensive social media analytics, sentiment tracking, and competitive intelligence platform delivering real-time insights across multiple data sources.</p>
+            </div>
+        </section>
+
+        <section class="platform-overview">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Platform Overview</h2>
+                    <p>One platform that scrubs popular social media feeds for business and then compares your data; sentiments, activity, social media posts and platforms you exist on</p>
+                </div>
+                <img src="images/PulseExplainer.png" alt="Humanyze Pulse Platform Overview" class="overview-image" onclick="openModal(this.src)" loading="eager">
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>The Challenge</h2>
+                    <p>Transforming workforce and market intelligence for the AI era</p>
+                </div>
+
+                <div style="max-width: 800px; margin: 0 auto; color: #a0a0a0; line-height: 1.8; font-size: 1.1rem;">
+                    <p style="margin-bottom: 20px;">The workforce and market landscape are evolving at an unprecedented pace. Traditional reports, manual research, and outdated data sources leave companies reactive instead of proactive. Organizations need real-time intelligence to:</p>
+                    <ul style="padding-left: 30px; margin-bottom: 20px;">
+                        <li>Track workforce shifts and hiring trends across industries</li>
+                        <li>Monitor brand perception and reputation through social media</li>
+                        <li>Analyze salary and compensation trends in real-time</li>
+                        <li>Benchmark against competitors with external workforce intelligence</li>
+                        <li>Extract AI-driven sentiment and trend analysis from job posts, reviews, and industry news</li>
+                    </ul>
+                    <p>Humanyze Pulse was designed to address this critical need by providing a unified platform that integrates multiple data sources and delivers actionable insights powered by AI. Existing platforms exist, but are bulky and require heavy costs. Humanyze tokenizes the information you request, so the cost is at a fraction of the competitors.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Key Features & Capabilities</h2>
+                    <p>Comprehensive analytics and intelligence tools for data-driven decision making</p>
+                </div>
+
+                <div style="max-width: 1000px; margin: 0 auto;">
+                    <div class="feature-item" style="max-width: 100%;">
+                        <div class="feature-image" style="height: 500px;">
+                            <img src="images/Frame 1106.png" alt="Social Media Analytics Dashboard" onclick="openModal(this.src)" loading="lazy" width="1000" height="500">
+                        </div>
+                        <div class="feature-content">
+                            <h3>Social Media Analytics Dashboard</h3>
+                            <p>Comprehensive real-time monitoring of social media activity with engagement tracking, sentiment analysis, and platform breakdown. Track 12K+ posts, monitor engagement rates, and analyze sentiment scores across all major social platforms including Reddit, LinkedIn, X (Twitter), Instagram, and TikTok.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Impact & Results</h2>
+                    <p>Delivering measurable value through intelligent analytics</p>
+                </div>
+
+                <div class="metrics-container">
+                    <div class="metric-card">
+                        <div class="metric-number">5+</div>
+                        <div class="metric-label">Social Platforms Integrated</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-number">12K+</div>
+                        <div class="metric-label">Posts Monitored Daily</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-number">Real-Time</div>
+                        <div class="metric-label">Analytics & Insights</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-number">AI-Powered</div>
+                        <div class="metric-label">Sentiment Analysis</div>
+                    </div>
+                </div>
+
+                <div style="max-width: 800px; margin: 60px auto 0; color: #a0a0a0; line-height: 1.8; font-size: 1.1rem;">
+                    <h3 style="color: #ffffff; font-size: 1.5rem; margin-bottom: 20px;">Who Benefits from Pulse?</h3>
+                    <ul style="padding-left: 30px;">
+                        <li><strong style="color: #ff6b35;">Executives & Business Leaders:</strong> Predict industry shifts and workforce movements with real-time intelligence</li>
+                        <li><strong style="color: #ff6b35;">Alternative Data & Financial Services Teams:</strong> Extract workforce-driven signals to anticipate market movements</li>
+                        <li><strong style="color: #ff6b35;">People Analytics & Strategy Teams:</strong> Benchmark against competitors and adjust workforce plans proactively</li>
+                        <li><strong style="color: #ff6b35;">HR & Talent Acquisition Teams:</strong> Optimize hiring strategies with real-time market data</li>
+                        <li><strong style="color: #ff6b35;">Marketing & PR Teams:</strong> Track brand perception and reputation through media and social analysis</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer style="padding: 60px 0; background: #ff6b35; color: white; text-align: center;">
+        <div class="container">
+            <h3 style="font-size: 2rem; margin-bottom: 20px;">Ready to discuss your project?</h3>
+            <p style="color: rgba(255, 255, 255, 0.8); margin-bottom: 30px;">Let's create something amazing together.</p>
+            <a href="../../index.html#contact" style="color: white; text-decoration: none; font-weight: 600;">Get in touch →</a>
+        </div>
+    </footer>
+
+    <!-- Image Modal -->
+    <div class="modal" id="imageModal">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">&times;</button>
+            <img class="modal-image" id="modalImage" src="" alt="">
+        </div>
+    </div>
+
+    <script>
+        // Modal functionality
+        const modal = document.getElementById('imageModal');
+        const modalImage = document.getElementById('modalImage');
+        const modalClose = document.getElementById('modalClose');
+
+        // Open modal function (called by onclick)
+        function openModal(imageSrc, imageAlt = '') {
+            modal.classList.add('active');
+            modalImage.src = imageSrc;
+            modalImage.alt = imageAlt;
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Add click listeners to all images
+        function addImageClickListeners() {
+            const images = document.querySelectorAll('.feature-image img, .overview-image, img[onclick]');
+            images.forEach(img => {
+                if (!img.onclick) {
+                    img.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        openModal(img.src, img.alt);
+                    });
+                }
+                img.style.cursor = 'pointer';
+            });
+        }
+
+        // Close modal
+        function closeModal() {
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        modalClose.addEventListener('click', closeModal);
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
+                closeModal();
+            }
+        });
+
+        // Initialize modal listeners when page loads
+        addImageClickListeners();
+    </script>
+</body>
+</html>
