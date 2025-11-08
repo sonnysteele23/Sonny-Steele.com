@@ -418,6 +418,7 @@ body {
     overflow: hidden;
     transition: var(--transition);
     position: relative;
+    cursor: pointer;
 }
 
 .case-study-card.featured {

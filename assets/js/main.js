@@ -256,13 +256,34 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+// Make case study cards fully clickable
+document.addEventListener('DOMContentLoaded', function() {
+    const caseStudyCardsClickable = document.querySelectorAll('.case-study-card');
+    caseStudyCardsClickable.forEach(card => {
+        card.addEventListener('click', function(e) {
+            // Don't trigger if clicking on the link itself
+            if (e.target.tagName === 'A') return;
+
+            const link = this.querySelector('.case-study-link');
+            if (link) {
+                // Check if it's a PDF (opens in new tab)
+                if (link.hasAttribute('target')) {
+                    window.open(link.href, '_blank');
+                } else {
+                    window.location.href = link.href;
+                }
+            }
+        });
+    });
+});
+
 // CSS animations via JavaScript
 const style = document.createElement('style');
 style.textContent = `
     .animate-in {
         animation: slideInUp 0.6s ease forwards;
     }
-    
+
     @keyframes slideInUp {
         from {
             opacity: 0;
@@ -273,11 +294,11 @@ style.textContent = `
             transform: translateY(0);
         }
     }
-    
+
     .loaded .hero-content {
         animation: fadeInUp 1s ease forwards;
     }
-    
+
     @keyframes fadeInUp {
         from {
             opacity: 0;
