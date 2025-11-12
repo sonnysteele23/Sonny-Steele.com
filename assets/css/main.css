@@ -120,8 +120,8 @@ body {
 
 /* Hero Section */
 .hero {
-    min-height: 100vh;
-    padding: 120px 0 20px;
+    min-height: auto;
+    padding: 120px 0 40px;
     position: relative;
     overflow: hidden;
 }
@@ -381,7 +381,7 @@ body {
 
 /* UX Process Section */
 .ux-process-section {
-    padding: 40px 0 120px;
+    padding: 60px 0 120px;
     background: var(--primary-bg);
 }
 
