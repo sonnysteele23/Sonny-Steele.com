@@ -275,6 +275,30 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+
+    // UX Process Toggle Functionality
+    const toggleButtons = document.querySelectorAll('.toggle-btn');
+    const processContents = document.querySelectorAll('.process-content');
+
+    toggleButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const targetProcess = this.getAttribute('data-process');
+
+            // Remove active class from all buttons and content
+            toggleButtons.forEach(btn => btn.classList.remove('active'));
+            processContents.forEach(content => content.classList.remove('active'));
+
+            // Add active class to clicked button
+            this.classList.add('active');
+
+            // Show corresponding content
+            if (targetProcess === 'ai-ux') {
+                document.getElementById('ai-ux-process').classList.add('active');
+            } else if (targetProcess === 'traditional-ux') {
+                document.getElementById('traditional-ux-process').classList.add('active');
+            }
+        });
+    });
 });
 
 // CSS animations via JavaScript
