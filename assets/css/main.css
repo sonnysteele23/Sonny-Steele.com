@@ -1419,6 +1419,56 @@ body {
         flex-wrap: wrap;
         gap: 20px;
     }
+
+    /* UX Process Responsive */
+    .ux-process-section {
+        padding: 80px 0;
+    }
+
+    .ux-process-title {
+        font-size: 2rem;
+    }
+
+    .ux-process-subtitle {
+        font-size: 1rem;
+    }
+
+    .process-toggle {
+        flex-direction: column;
+        gap: 12px;
+        margin: 40px 0 60px;
+    }
+
+    .toggle-btn {
+        width: 100%;
+        padding: 14px 20px;
+        font-size: 1rem;
+    }
+
+    .process-intro {
+        margin-bottom: 60px;
+    }
+
+    .process-intro h3 {
+        font-size: 1.5rem;
+    }
+
+    .process-intro p {
+        font-size: 1rem;
+    }
+
+    .process-steps {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .process-step {
+        padding: 30px;
+    }
+
+    .process-step h4 {
+        font-size: 1.2rem;
+    }
 }
 
 @media (max-width: 480px) {
