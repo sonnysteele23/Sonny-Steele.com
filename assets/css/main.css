@@ -511,6 +511,15 @@ body {
     height: 100%;
 }
 
+.step-number {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--accent-orange);
+    opacity: 0.3;
+    margin-bottom: 16px;
+    line-height: 1;
+}
+
 .step-icon {
     width: 64px;
     height: 64px;
@@ -530,11 +539,17 @@ body {
 }
 
 #traditional-ux-process .step-icon {
-    color: white;
+    background: transparent;
+    color: var(--text-secondary);
 }
 
 #traditional-ux-process .step-icon svg {
     filter: none;
+}
+
+#traditional-ux-process .step-number {
+    color: var(--text-secondary);
+    opacity: 0.5;
 }
 
 .process-step h4 {
