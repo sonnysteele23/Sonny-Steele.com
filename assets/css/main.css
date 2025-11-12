@@ -525,9 +525,16 @@ body {
 }
 
 .process-step:hover .step-icon {
-    background: var(--gradient-orange);
-    color: white;
     transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+#traditional-ux-process .step-icon {
+    color: white;
+}
+
+#traditional-ux-process .step-icon svg {
+    filter: none;
 }
 
 .process-step h4 {
