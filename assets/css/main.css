@@ -490,6 +490,18 @@ body {
     overflow: hidden;
 }
 
+.step-number-label {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    opacity: 0.6;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
 .process-step::before {
     content: '';
     position: absolute;
@@ -1469,6 +1481,12 @@ body {
 
     .process-step h4 {
         font-size: 1.2rem;
+    }
+
+    .step-number-label {
+        top: 30px;
+        right: 30px;
+        font-size: 0.7rem;
     }
 }
 
