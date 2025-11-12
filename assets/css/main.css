@@ -530,12 +530,12 @@ body {
 }
 
 .process-step-highlight {
-    background: rgba(255, 255, 255, 0.03);
-    border-color: rgba(255, 255, 255, 0.15);
+    background: #000000;
+    border-color: rgba(255, 255, 255, 0.2);
 }
 
 .process-step-highlight::before {
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.1) 100%);
+    background: var(--gradient-orange);
 }
 
 .process-step h4 {
