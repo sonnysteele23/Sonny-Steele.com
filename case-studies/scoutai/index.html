@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ScoutAI — UX Case Study | Sonny Steele</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --bg: #FFFFFF; --navy: #2D3A4A; --navy-light: #6B7B8D; --accent-bar: #4A5B6E;
+    --black: #1A1A2E; --dark: #2D2D3F; --body: #4A4A5A; --muted: #8A8A9A;
+    --light-bg: #F5F6F8; --border: #E2E4E8; --mint: #3ECDA0;
+    --font: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --slide-w: 1440px; --slide-h: 900px;
+  }
+  body { background: #E8E8E8; font-family: var(--font); color: var(--black); display: flex; flex-direction: column; align-items: center; gap: 32px; padding: 32px 20px; }
+  .slide { width: var(--slide-w); height: var(--slide-h); background: var(--bg); position: relative; overflow: hidden; flex-shrink: 0; display: flex; flex-direction: column; box-shadow: 0 2px 20px rgba(0,0,0,0.08); }
+  .slide::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 6px; background: var(--accent-bar); }
+  .slide-footer { position: absolute; bottom: 28px; left: 80px; font-size: 14px; color: var(--muted); display: flex; gap: 24px; align-items: center; }
+  .slide-footer span:nth-child(2) { color: #CCC; }
+  .slide-inner { padding: 56px 80px 80px; flex: 1; display: flex; flex-direction: column; }
+  .category { font-size: 16px; font-weight: 500; color: var(--navy-light); margin-bottom: 8px; letter-spacing: 0.2px; }
+  h1.hero { font-size: 56px; font-weight: 400; color: var(--black); line-height: 1.1; letter-spacing: -1px; margin-bottom: 16px; }
+  h2.headline { font-size: 44px; font-weight: 600; color: var(--black); line-height: 1.2; letter-spacing: -0.5px; margin-bottom: 20px; }
+  .body-lg { font-size: 22px; font-weight: 400; color: var(--body); line-height: 1.55; }
+  .body-md { font-size: 18px; font-weight: 400; color: var(--body); line-height: 1.6; }
+  .tags { display: flex; gap: 12px; flex-wrap: wrap; }
+  .tag { font-size: 12px; font-weight: 600; letter-spacing: 0.8px; text-transform: uppercase; padding: 8px 18px; border: 1.5px solid var(--border); color: var(--navy); background: var(--bg); }
+  .meta-item { padding: 14px 0; border-bottom: 1px solid var(--border); display: flex; gap: 32px; width: 100%; }
+  .meta-label { font-size: 15px; color: var(--muted); min-width: 100px; }
+  .meta-value { font-size: 15px; color: var(--black); font-weight: 500; }
+  .two-col { display: flex; gap: 60px; } .col { flex: 1; }
+  .divider { width: 100%; height: 1px; background: var(--border); margin: 24px 0; }
+  .finding-title { font-size: 22px; font-weight: 700; color: var(--navy); margin-bottom: 8px; text-align: center; }
+  .finding-desc { font-size: 16px; color: var(--body); text-align: center; line-height: 1.5; }
+  .grid-2x2 { display: grid; grid-template-columns: 1fr 1fr; gap: 48px 80px; }
+  .bullet-list { display: flex; flex-direction: column; gap: 8px; }
+  .bullet-list li { font-size: 20px; color: var(--black); line-height: 1.4; list-style-type: disc; margin-left: 24px; }
+  strong { font-weight: 700; color: var(--black); }
+  .tradeoff { font-size: 21px; color: var(--black); line-height: 1.55; margin-bottom: 32px; }
+  .app-screenshot { background: #0B1F22; border-radius: 12px; overflow: hidden; border: 1px solid #1C4347; box-shadow: 0 8px 32px rgba(0,0,0,0.15); }
+  .app-topbar { height: 36px; background: #0A1A1D; display: flex; align-items: center; padding: 0 16px; gap: 6px; border-bottom: 1px solid #1C4347; }
+  .app-dot { width: 8px; height: 8px; border-radius: 50%; background: #2A3A3E; }
+  .app-url { margin-left: 12px; font-size: 10px; color: #4A635E; background: rgba(0,0,0,0.3); padding: 3px 10px; border-radius: 3px; }
+  .app-body { padding: 16px; }
+  .scout-card { background: #0F2A2E; border: 1px solid #1C4347; border-radius: 8px; padding: 14px 16px; margin-bottom: 8px; }
+  .scout-pill { display: inline-block; font-size: 9px; padding: 3px 8px; border-radius: 999px; margin-right: 4px; margin-top: 6px; }
+  .scout-pill-mint { background: rgba(62,205,160,0.08); color: #3ECDA0; border: 1px solid rgba(62,205,160,0.2); }
+  .scout-pill-muted { background: rgba(0,0,0,0.15); color: #6B8580; }
+  .scout-btn { display: inline-block; padding: 5px 14px; border-radius: 999px; font-size: 10px; font-weight: 500; }
+  .scout-btn-mint { background: #3ECDA0; color: #0B1F22; }
+  .scout-btn-ghost { background: transparent; border: 1px solid #1C4347; color: #A3B5B0; }
+  .scout-match { width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 600; }
+  .scout-label { font-size: 9px; color: #6B8580; font-weight: 600; letter-spacing: 0.8px; text-transform: uppercase; margin-bottom: 6px; }
+  .scout-ghost { background: #0F2A2E; border: 1px solid rgba(232,93,93,0.2); border-radius: 8px; padding: 14px 16px; opacity: 0.5; }
+</style>
+</head>
+<body>
+
+<!-- SLIDE 1 — TITLE -->
+<div class="slide">
+  <div class="slide-inner" style="flex-direction: row; gap: 40px;">
+    <div style="flex: 1; display: flex; flex-direction: column; justify-content: center;">
+      <div style="margin-bottom: 16px;"><svg width="48" height="48" viewBox="0 0 40 40" fill="none"><circle cx="18" cy="18" r="14" stroke="#3ECDA0" stroke-width="1.5"/><line x1="28" y1="28" x2="36" y2="36" stroke="#3ECDA0" stroke-width="2.5" stroke-linecap="round"/><circle cx="12" cy="14" r="2.5" fill="#D4C44C"/><circle cx="22" cy="12" r="2" fill="#D4C44C"/><circle cx="16" cy="24" r="2.5" fill="#D4C44C"/></svg></div>
+      <h1 class="hero" style="margin-bottom: 24px;">ScoutAI</h1>
+      <p class="body-lg" style="margin-bottom: 32px;">ScoutAI is an <strong>AI-powered job search platform</strong> I designed and built from scratch. Job seekers were drowning in ghost postings, generic applications, and fragmented tools. I conducted a <strong>competitive audit of 40+ products</strong>, identified three unmet needs no competitor addressed, then designed the end-to-end experience — from <strong>information architecture</strong> and <strong>design system</strong> to every interaction pattern across 20+ screens.</p>
+      <div class="meta-item"><span class="meta-label">Company</span><span class="meta-value">Personal SaaS Product</span></div>
+      <div class="meta-item"><span class="meta-label">Role</span><span class="meta-value">Founder & Lead UX Designer</span></div>
+      <div style="margin-top: 24px;"><div class="tags"><span class="tag">AI / ML</span><span class="tag">0 → 1 Product Design</span><span class="tag">Design Systems</span><span class="tag">SaaS</span></div></div>
+    </div>
+    <div style="flex: 0.65; display: flex; flex-direction: column; gap: 12px; justify-content: center;">
+      <div class="app-screenshot" style="transform: scale(0.95);"><div class="app-topbar"><div class="app-dot"></div><div class="app-dot"></div><div class="app-dot"></div><span class="app-url">scoutai.site/dashboard</span></div>
+        <div class="app-body" style="display: flex; gap: 12px;">
+          <div style="width: 140px;"><div class="scout-label">FILTERS</div><div style="background: rgba(0,0,0,0.2); border-radius: 5px; padding: 6px 8px; font-size: 9px; color: #6B8580; border: 1px solid #1C4347; margin-bottom: 8px;">🔍 Search roles...</div><div class="scout-label" style="margin-top: 8px;">MATCH STATS</div><div style="display: flex; justify-content: space-between; margin-bottom: 4px;"><span style="font-size: 9px; color: #6B8580;">Matched</span><span style="font-size: 11px; font-weight: 600; color: #3ECDA0;">847</span></div><div style="display: flex; justify-content: space-between;"><span style="font-size: 9px; color: #6B8580;">Applied</span><span style="font-size: 11px; font-weight: 600; color: #D4C44C;">23</span></div></div>
+          <div style="flex: 1; display: flex; flex-direction: column; gap: 6px;">
+            <div class="scout-card"><div style="display: flex; justify-content: space-between;"><div><div style="font-size: 13px; color: #E8ECE9; font-weight: 500;">Senior UX Designer</div><div style="font-size: 10px; color: #A3B5B0; margin-top: 2px;">Stripe · San Francisco · Remote</div></div><div class="scout-match" style="border: 2px solid #3ECDA0; color: #3ECDA0;">94</div></div><div style="margin-top: 8px;"><span class="scout-pill scout-pill-mint">$165k–$195k</span><span class="scout-pill scout-pill-muted">Figma</span><span class="scout-pill scout-pill-muted">Design Systems</span></div><div style="margin-top: 10px; display: flex; gap: 6px;"><span class="scout-btn scout-btn-mint">Generate Cover Letter</span><span class="scout-btn scout-btn-ghost">Tailor Resume</span></div></div>
+            <div class="scout-card"><div style="display: flex; justify-content: space-between;"><div><div style="font-size: 13px; color: #E8ECE9; font-weight: 500;">Product Designer, AI Platform</div><div style="font-size: 10px; color: #A3B5B0; margin-top: 2px;">Anthropic · San Francisco · Hybrid</div></div><div class="scout-match" style="border: 2px solid #D4C44C; color: #D4C44C;">78</div></div></div>
+            <div class="scout-ghost"><div style="display: flex; justify-content: space-between;"><div style="text-decoration: line-through; font-size: 13px; color: #6B8580;">UX Lead — Enterprise</div><span style="font-size: 8px; background: rgba(232,93,93,0.12); color: #E85D5D; padding: 2px 6px; border-radius: 999px;">👻 Ghost</span></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer"><span>Sonny Steele</span><span>|</span><span>sonny@sonny-steele.com</span></div>
+</div>
+
+<!-- SLIDE 2 — THE CHALLENGE -->
+<div class="slide">
+  <div class="slide-inner" style="justify-content: center;">
+    <div class="category">The challenge</div>
+    <h2 class="headline" style="font-size: 40px; max-width: 1100px; line-height: 1.3; margin-bottom: 32px;">We hypothesized that building a single platform combining verified job matching, AI-tailored application materials, and ghost job filtering — three needs no competitor addressed — would collapse a 6-tool workflow into one and dramatically reduce wasted effort.</h2>
+    <div class="divider"></div>
+    <div class="two-col" style="gap: 120px;">
+      <div class="col"><div class="category" style="margin-bottom: 12px;">Specific goals</div><ul class="bullet-list"><li>Unified job discovery, evaluation, and application</li><li>AI resume tailoring with user control over output tone</li><li>Ghost job detection to eliminate wasted applications</li><li>Token-based design system across 20+ screens</li><li>Integrated salary data for informed decision-making</li></ul></div>
+      <div class="col"><div class="category" style="margin-bottom: 12px;">Key metrics</div><ul class="bullet-list"><li>40+ competitors audited across 8 categories</li><li>3 unmet needs identified (ghost filtering, humanization, salary data)</li><li>89+ job sources integrated</li><li>30+ UI components systemized</li><li>20+ screens designed and shipped</li></ul></div>
+    </div>
+  </div>
+  <div class="slide-footer"><span>Sonny Steele</span><span>|</span><span>sonny@sonny-steele.com</span></div>
+</div>
+
+<!-- SLIDE 3 — COMPETITIVE AUDIT -->
+<div class="slide">
+  <div class="slide-inner" style="flex-direction: row; gap: 48px;">
+    <div style="flex: 0.55; display: flex; flex-direction: column; gap: 12px; justify-content: center;">
+      <div style="background: var(--light-bg); border: 1px solid var(--border); border-radius: 8px; padding: 20px; font-size: 11px;">
+        <div style="font-weight: 700; font-size: 13px; color: var(--navy); margin-bottom: 12px;">Feature Comparison — 40+ Competitors</div>
+        <table style="width: 100%; border-collapse: collapse; font-size: 10px;">
+          <thead><tr style="border-bottom: 1px solid var(--border);"><th style="text-align: left; padding: 6px 8px; color: var(--muted); font-weight: 600;">Feature</th><th style="padding: 6px 8px; color: var(--muted);">Teal</th><th style="padding: 6px 8px; color: var(--muted);">Huntr</th><th style="padding: 6px 8px; color: var(--muted);">Sonara</th><th style="padding: 6px 8px; color: #3ECDA0; font-weight: 700;">ScoutAI</th></tr></thead>
+          <tbody>
+            <tr style="border-bottom: 1px solid #ECECF0;"><td style="padding: 5px 8px;">Resume Tailoring</td><td style="text-align:center; color: #3ECDA0;">✓</td><td style="text-align:center; color: #3ECDA0;">✓</td><td style="text-align:center; color: #3ECDA0;">✓</td><td style="text-align:center; color: #3ECDA0; font-weight: 700;">✓</td></tr>
+            <tr style="border-bottom: 1px solid #ECECF0;"><td style="padding: 5px 8px;">Cover Letters</td><td style="text-align:center; color: #3ECDA0;">✓</td><td style="text-align:center; color: #3ECDA0;">✓</td><td style="text-align:center; color: #3ECDA0;">✓</td><td style="text-align:center; color: #3ECDA0; font-weight: 700;">✓</td></tr>
+            <tr style="border-bottom: 1px solid #ECECF0;"><td style="padding: 5px 8px;">Auto-Apply</td><td style="text-align:center; color: #CCC;">✗</td><td style="text-align:center; color: #CCC;">✗</td><td style="text-align:center; color: #3ECDA0;">✓</td><td style="text-align:center; color: #3ECDA0; font-weight: 700;">✓</td></tr>
+            <tr style="border-bottom: 1px solid #ECECF0; background: rgba(62,205,160,0.05);"><td style="padding: 5px 8px; font-weight: 600;">Ghost Job Filtering</td><td style="text-align:center; color: #CCC;">✗</td><td style="text-align:center; color: #CCC;">✗</td><td style="text-align:center; color: #CCC;">✗</td><td style="text-align:center; color: #3ECDA0; font-weight: 700;">✓ Only</td></tr>
+            <tr style="border-bottom: 1px solid #ECECF0; background: rgba(62,205,160,0.05);"><td style="padding: 5px 8px; font-weight: 600;">Humanization Control</td><td style="text-align:center; color: #CCC;">✗</td><td style="text-align:center; color: #CCC;">✗</td><td style="text-align:center; color: #CCC;">✗</td><td style="text-align:center; color: #3ECDA0; font-weight: 700;">✓ Only</td></tr>
+            <tr style="background: rgba(62,205,160,0.05);"><td style="padding: 5px 8px; font-weight: 600;">Integrated Salary Data</td><td style="text-align:center; color: #CCC;">✗</td><td style="text-align:center; color: #CCC;">✗</td><td style="text-align:center; color: #CCC;">✗</td><td style="text-align:center; color: #3ECDA0; font-weight: 700;">✓ Only</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 6px; padding: 8px 0;"><span style="font-size: 9px; padding: 4px 10px; background: var(--light-bg); border: 1px solid var(--border); border-radius: 4px; color: var(--navy);">AI Resume Builders (8)</span><span style="font-size: 9px; padding: 4px 10px; background: var(--light-bg); border: 1px solid var(--border); border-radius: 4px; color: var(--navy);">Auto-Apply Bots (9)</span><span style="font-size: 9px; padding: 4px 10px; background: var(--light-bg); border: 1px solid var(--border); border-radius: 4px; color: var(--navy);">ATS Optimization (4)</span><span style="font-size: 9px; padding: 4px 10px; background: var(--light-bg); border: 1px solid var(--border); border-radius: 4px; color: var(--navy);">Job Matching (8)</span><span style="font-size: 9px; padding: 4px 10px; background: var(--light-bg); border: 1px solid var(--border); border-radius: 4px; color: var(--navy);">Interview Prep (4)</span><span style="font-size: 9px; padding: 4px 10px; background: var(--light-bg); border: 1px solid var(--border); border-radius: 4px; color: var(--navy);">Career Coaching (3)</span></div>
+    </div>
+    <div style="flex: 0.45; display: flex; flex-direction: column; justify-content: center;">
+      <div class="category">Competitive research</div>
+      <h2 class="headline" style="font-size: 38px;">Landscape Audit</h2>
+      <p class="body-md" style="margin-bottom: 20px;">Before designing anything, I conducted a <strong>systematic competitive analysis of 40+ products</strong> across 8 market categories. Every competitor was evaluated on features, pricing, UX quality, and user reviews.</p>
+      <p class="body-md" style="margin-bottom: 20px;"><strong>The key finding:</strong> No single platform combined job matching, resume tailoring, cover letter generation, ghost filtering, AND application tracking. Users needed 3–4 separate tools.</p>
+      <p class="body-md">Three features had <strong>zero coverage</strong> across all 40+ competitors: ghost job detection, AI humanization controls, and integrated BLS salary data. These became ScoutAI's core differentiators.</p>
+      <div style="margin-top: 24px;"><div class="tags"><span class="tag">Competitive Analysis</span><span class="tag">Market Research</span><span class="tag">Gap Analysis</span></div></div>
+    </div>
+  </div>
+  <div class="slide-footer"><span>Sonny Steele</span><span>|</span><span>sonny@sonny-steele.com</span></div>
+</div>
+
+<!-- SLIDE 4 — KEY FINDINGS -->
+<div class="slide">
+  <div class="slide-inner" style="justify-content: center;">
+    <div class="category">User Research</div>
+    <h2 class="headline" style="margin-bottom: 48px;">Key findings that shaped the design.</h2>
+    <div class="divider" style="margin-bottom: 48px;"></div>
+    <div class="grid-2x2">
+      <div><div class="finding-title">Ghost Job Epidemic</div><div class="finding-desc">30–40% of listings are expired, filled, or fake — wasting hours of effort per week with no feedback or signal</div></div>
+      <div><div class="finding-title">AI Detection Anxiety</div><div class="finding-desc">Job seekers reported hiring managers flagging AI-generated cover letters — but had no way to control the tone</div></div>
+      <div><div class="finding-title">Fragmented Workflow</div><div class="finding-desc">Seekers juggle 6+ disconnected tools — LinkedIn, job boards, Google Docs, spreadsheets, AI writers, email</div></div>
+      <div><div class="finding-title">Salary Blindness</div><div class="finding-desc">43% of postings hide salary — candidates waste time on roles below their range with no integrated market data</div></div>
+    </div>
+  </div>
+  <div class="slide-footer"><span>Sonny Steele</span><span>|</span><span>sonny@sonny-steele.com</span></div>
+</div>
+
+<!-- SLIDE 5 — DESIGN DECISIONS -->
+<div class="slide">
+  <div class="slide-inner" style="justify-content: center;">
+    <div class="category">Design Decisions</div>
+    <h2 class="headline" style="margin-bottom: 40px;">Three tradeoffs shaped every design decision:</h2>
+    <div class="tradeoff"><strong>Automation vs. user agency</strong> — Auto-apply competitors like LazyApply (1.9★) spam hundreds of generic applications. Users lose control. Solution: a token-based system where users review and approve each application, with a humanization slider that gives explicit control over AI-generated tone.</div>
+    <div class="tradeoff"><strong>Information density vs. clarity</strong> — Job seekers need salary, match score, skills, location, and posting age visible at a glance — but overload causes decision paralysis. Solution: progressive disclosure with a compact card showing key signals, expanding to full detail on interaction.</div>
+    <div class="tradeoff"><strong>Single dashboard vs. specialized views</strong> — Competitors force users between separate apps for search, resume building, and tracking. Solution: one dashboard where filtering, evaluating, generating materials, and applying all happen without navigation — reducing the 6-tool workflow to one screen.</div>
+  </div>
+  <div class="slide-footer"><span>Sonny Steele</span><span>|</span><span>sonny@sonny-steele.com</span></div>
+</div>
+
+<!-- SLIDE 6 — KEY SCREENS -->
+<div class="slide">
+  <div class="slide-inner">
+    <h2 class="headline" style="margin-bottom: 12px; font-size: 32px;">The Solution — Key Screens</h2>
+    <div style="display: flex; gap: 20px; flex: 1; align-items: stretch;">
+      <!-- Dashboard -->
+      <div style="flex: 1; display: flex; flex-direction: column;">
+        <div class="app-screenshot" style="flex: 1; display: flex; flex-direction: column;"><div class="app-topbar"><div class="app-dot"></div><div class="app-dot"></div><div class="app-dot"></div><span class="app-url">dashboard</span></div>
+          <div class="app-body" style="flex: 1; display: flex; gap: 10px;">
+            <div style="width: 100px;"><div class="scout-label">FILTERS</div><div style="background: rgba(0,0,0,0.2); border-radius: 4px; padding: 5px 7px; font-size: 8px; color: #6B8580; border: 1px solid #1C4347; margin-bottom: 6px;">🔍 Search...</div><div class="scout-label">SALARY</div><div style="height: 3px; background: #1C4347; border-radius: 2px; position: relative; margin-top: 4px;"><div style="position: absolute; left: 20%; right: 30%; height: 100%; background: #3ECDA0; border-radius: 2px;"></div></div></div>
+            <div style="flex: 1; display: flex; flex-direction: column; gap: 5px;">
+              <div class="scout-card" style="padding: 10px 12px; margin-bottom: 4px;"><div style="display: flex; justify-content: space-between;"><div><div style="font-size: 11px; color: #E8ECE9; font-weight: 500;">Senior UX Designer</div><div style="font-size: 8px; color: #A3B5B0;">Stripe · Remote</div></div><div class="scout-match" style="border: 1.5px solid #3ECDA0; color: #3ECDA0; width: 26px; height: 26px; font-size: 9px;">94</div></div><div style="margin-top: 6px;"><span class="scout-pill scout-pill-mint" style="font-size: 7px;">$165k–$195k</span></div><div style="margin-top: 6px; display: flex; gap: 4px;"><span class="scout-btn scout-btn-mint" style="font-size: 8px; padding: 3px 10px;">Generate</span><span class="scout-btn scout-btn-ghost" style="font-size: 8px; padding: 3px 10px;">Tailor</span></div></div>
+              <div class="scout-card" style="padding: 10px 12px;"><div style="display: flex; justify-content: space-between;"><div><div style="font-size: 11px; color: #E8ECE9; font-weight: 500;">Product Designer</div><div style="font-size: 8px; color: #A3B5B0;">Anthropic · Hybrid</div></div><div class="scout-match" style="border: 1.5px solid #D4C44C; color: #D4C44C; width: 26px; height: 26px; font-size: 9px;">78</div></div></div>
+              <div class="scout-ghost" style="padding: 8px 12px;"><div style="display: flex; justify-content: space-between; align-items: center;"><span style="font-size: 10px; color: #6B8580; text-decoration: line-through;">UX Lead</span><span style="font-size: 7px; background: rgba(232,93,93,0.12); color: #E85D5D; padding: 2px 5px; border-radius: 99px;">👻 Ghost</span></div></div>
+            </div>
+          </div>
+        </div>
+        <div style="text-align: center; margin-top: 12px; font-size: 15px; font-weight: 600; color: var(--navy);">Job Dashboard</div>
+        <div style="text-align: center; font-size: 11px; color: var(--muted);">Match scoring · Ghost detection · Inline actions</div>
+      </div>
+      <!-- Resume Engine -->
+      <div style="flex: 1; display: flex; flex-direction: column;">
+        <div class="app-screenshot" style="flex: 1; display: flex; flex-direction: column;"><div class="app-topbar"><div class="app-dot"></div><div class="app-dot"></div><div class="app-dot"></div><span class="app-url">resume</span></div>
+          <div class="app-body" style="flex: 1;">
+            <div style="font-size: 14px; color: #E8ECE9; font-weight: 500; margin-bottom: 6px;">Resume Engine</div>
+            <div style="display: flex; gap: 2px; margin-bottom: 12px;"><div style="padding: 5px 12px; font-size: 9px; color: #6B8580; background: #0F2A2E; border: 1px solid #1C4347; border-radius: 5px 5px 0 0;">Upload</div><div style="padding: 5px 12px; font-size: 9px; color: #3ECDA0; font-weight: 600; background: rgba(62,205,160,0.08); border: 1px solid rgba(62,205,160,0.2); border-radius: 5px 5px 0 0; border-bottom: 2px solid #3ECDA0;">Parsed</div><div style="padding: 5px 12px; font-size: 9px; color: #6B8580; background: #0F2A2E; border: 1px solid #1C4347; border-radius: 5px 5px 0 0;">Assessment</div><div style="padding: 5px 12px; font-size: 9px; color: #6B8580; background: #0F2A2E; border: 1px solid #1C4347; border-radius: 5px 5px 0 0;">Rewrite</div></div>
+            <div style="background: rgba(0,0,0,0.2); border-radius: 6px; padding: 10px; margin-bottom: 8px;"><div style="font-size: 8px; color: #6B8580; font-weight: 600; letter-spacing: 0.5px; margin-bottom: 4px;">CONTACT</div><div style="font-size: 11px; color: #E8ECE9; font-weight: 500;">Sonny Steele</div><div style="font-size: 8px; color: #A3B5B0;">sonny@sonny-steele.com · Olympia, WA</div></div>
+            <div style="background: rgba(0,0,0,0.2); border-radius: 6px; padding: 10px; margin-bottom: 8px;"><div style="font-size: 8px; color: #6B8580; font-weight: 600; letter-spacing: 0.5px; margin-bottom: 4px;">SKILLS</div><div style="display: flex; gap: 3px; flex-wrap: wrap;"><span class="scout-pill scout-pill-mint" style="font-size: 7px;">AI/ML UX</span><span class="scout-pill scout-pill-mint" style="font-size: 7px;">Design Systems</span><span class="scout-pill scout-pill-mint" style="font-size: 7px;">Figma</span><span class="scout-pill scout-pill-muted" style="font-size: 7px;">User Research</span></div></div>
+            <div style="display: flex; gap: 6px; margin-top: 8px;"><span class="scout-btn scout-btn-mint" style="font-size: 9px;">Run Assessment →</span></div>
+          </div>
+        </div>
+        <div style="text-align: center; margin-top: 12px; font-size: 15px; font-weight: 600; color: var(--navy);">Resume Engine</div>
+        <div style="text-align: center; font-size: 11px; color: var(--muted);">4-tab progressive flow · AI assessment · Diff rewrite</div>
+      </div>
+      <!-- Humanization Slider -->
+      <div style="flex: 1; display: flex; flex-direction: column;">
+        <div class="app-screenshot" style="flex: 1; display: flex; flex-direction: column;"><div class="app-topbar"><div class="app-dot"></div><div class="app-dot"></div><div class="app-dot"></div><span class="app-url">Cover Letter</span></div>
+          <div class="app-body" style="flex: 1;">
+            <div style="font-size: 12px; color: #E8ECE9; font-weight: 500; margin-bottom: 12px;">Cover Letter — Senior UX Designer at Stripe</div>
+            <div style="margin-bottom: 12px;"><div style="font-size: 9px; color: #6B8580; font-weight: 600; letter-spacing: 0.5px; margin-bottom: 8px;">HUMANIZATION LEVEL</div><div style="position: relative; height: 16px; margin-bottom: 4px;"><div style="position: absolute; top: 6px; left: 0; right: 0; height: 3px; background: #1C4347; border-radius: 2px;"><div style="position: absolute; left: 0; width: 35%; height: 100%; background: linear-gradient(90deg, #3ECDA0, #D4C44C); border-radius: 2px;"></div></div><div style="position: absolute; top: 2px; left: 33%; width: 12px; height: 12px; background: #E8ECE9; border-radius: 50%; box-shadow: 0 1px 4px rgba(0,0,0,0.4);"></div></div><div style="display: flex; justify-content: space-between;"><span style="font-size: 7px; color: #3ECDA0;">🤖 Polished</span><span style="font-size: 7px; color: #D4C44C;">🧑 Human</span></div></div>
+            <div style="background: rgba(0,0,0,0.25); border-radius: 6px; padding: 12px; font-size: 9px; color: #A3B5B0; line-height: 1.7; font-style: italic;">"I was genuinely excited to see this role — I've spent the last two years designing AI-driven enterprise tools, and the design systems challenge you describe is exactly the kind of problem I love solving..."</div>
+            <div style="display: flex; gap: 6px; margin-top: 12px;"><span class="scout-btn scout-btn-mint" style="font-size: 9px;">Download PDF</span><span class="scout-btn scout-btn-ghost" style="font-size: 9px;">Edit</span><span class="scout-btn scout-btn-ghost" style="font-size: 9px;">Regenerate</span></div>
+          </div>
+        </div>
+        <div style="text-align: center; margin-top: 12px; font-size: 15px; font-weight: 600; color: var(--navy);">Humanization Slider</div>
+        <div style="text-align: center; font-size: 11px; color: var(--muted);">User-controlled AI tone · No competitor has this</div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer"><span>Sonny Steele</span><span>|</span><span>sonny@sonny-steele.com</span></div>
+</div>
+
+<!-- SLIDE 7 — IMPACT -->
+<div class="slide">
+  <div class="slide-inner" style="flex-direction: row; gap: 48px;">
+    <div style="flex: 0.55; display: flex; flex-direction: column; justify-content: center;">
+      <h2 class="headline" style="font-size: 48px; margin-bottom: 24px;">Impact</h2>
+      <p class="body-lg" style="margin-bottom: 28px;">The unified platform shipped with <strong>20+ screens</strong>, a <strong>30+ component design system</strong>, and three features no competitor offers — transforming a fragmented 6-tool workflow into a single dashboard experience.</p>
+      <ul class="bullet-list" style="margin-bottom: 28px;">
+        <li>89+ job sources aggregated with ghost job filtering — <strong>eliminating 30–40% of wasted effort</strong></li>
+        <li>Humanization slider gave users control over AI tone — <strong>the only product offering this</strong></li>
+        <li>4-tab resume engine reduced tailoring time from hours to minutes with AI assessment and inline rewriting</li>
+        <li>Token-based design system enabled consistent, scalable UI across all 20+ screens from a single source file</li>
+      </ul>
+      <div class="tags"><span class="tag">Product Design</span><span class="tag">Design Systems</span><span class="tag">AI / ML</span><span class="tag">Information Architecture</span></div>
+    </div>
+    <div style="flex: 0.45; display: flex; align-items: center;">
+      <div class="app-screenshot" style="width: 100%;"><div class="app-topbar"><div class="app-dot"></div><div class="app-dot"></div><div class="app-dot"></div><span class="app-url">scoutai.site/dashboard</span></div>
+        <div class="app-body" style="text-align: center; padding: 24px;">
+          <div style="display: flex; gap: 16px; justify-content: center; margin-bottom: 20px;">
+            <div style="text-align: center;"><div style="font-size: 32px; font-weight: 300; color: #3ECDA0;">89+</div><div style="font-size: 9px; color: #6B8580;">Job Sources</div></div>
+            <div style="text-align: center;"><div style="font-size: 32px; font-weight: 300; color: #D4C44C;">40+</div><div style="font-size: 9px; color: #6B8580;">Competitors Audited</div></div>
+            <div style="text-align: center;"><div style="font-size: 32px; font-weight: 300; color: #4EA8DE;">20+</div><div style="font-size: 9px; color: #6B8580;">Screens Designed</div></div>
+          </div>
+          <div style="display: flex; gap: 12px; justify-content: center; margin-bottom: 20px;">
+            <div style="background: #0F2A2E; border: 1px solid #1C4347; border-radius: 8px; padding: 12px 16px; text-align: center; flex: 1;"><div style="font-size: 8px; color: #6B8580; font-weight: 600; letter-spacing: 0.5px; margin-bottom: 4px;">APPLIED</div><div style="font-size: 20px; color: #4EA8DE; font-weight: 300;">23</div></div>
+            <div style="background: #0F2A2E; border: 1px solid #1C4347; border-radius: 8px; padding: 12px 16px; text-align: center; flex: 1;"><div style="font-size: 8px; color: #6B8580; font-weight: 600; letter-spacing: 0.5px; margin-bottom: 4px;">SCREENING</div><div style="font-size: 20px; color: #D4C44C; font-weight: 300;">5</div></div>
+            <div style="background: #0F2A2E; border: 1px solid #1C4347; border-radius: 8px; padding: 12px 16px; text-align: center; flex: 1;"><div style="font-size: 8px; color: #6B8580; font-weight: 600; letter-spacing: 0.5px; margin-bottom: 4px;">INTERVIEW</div><div style="font-size: 20px; color: #3ECDA0; font-weight: 300;">2</div></div>
+          </div>
+          <div style="font-size: 10px; color: #A3B5B0;">Application Tracker — Kanban pipeline</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer"><span>Sonny Steele</span><span>|</span><span>sonny@sonny-steele.com</span></div>
+</div>
+
+</body>
+</html>
